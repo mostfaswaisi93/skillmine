@@ -62,7 +62,7 @@ const Navbar = () => {
                 : "opacity-0 translate-y-5 invisible"
             }`}
           >
-            <ul className="flex flex-col gap-3 pl-4 mt-2 max-h-[300px] overflow-auto">
+            <ul className="flex flex-col gap-3 pl-4 mt-2 max-h-[300px] overflow-auto scrollbar">
               {CourseCategories.map((category, index) => (
                 <li key={index}>
                   <Link
@@ -78,94 +78,126 @@ const Navbar = () => {
         </div>
 
         <form action="submit" className="hidden lg:flex w-[500px] relative">
-            <input type="text" className="border border-1 border-gray-300 text-gray-700 outline-none w-full p-4 pr-10 rounded-[8px]" placeholder="Search Courses..." />
-            <button className="absolute right-4 h-full transition-ease-in-out duration-0.3s cursor-pointer">
-                <RiSearch2Line color="#7d0ed2" size={22} />
-            </button>
+          <input
+            type="text"
+            className="border border-1 border-gray-300 text-gray-700 outline-none w-full p-4 pr-10 rounded-[8px]"
+            placeholder="Search Courses..."
+          />
+          <button className="absolute right-4 h-full transition-ease-in-out duration-0.3s cursor-pointer">
+            <RiSearch2Line color="#7d0ed2" size={22} />
+          </button>
         </form>
+
         <Link className="hidden lg:block whitespace-nowrap hover-text-purple-500" to="#">
-            Become an Instructor
+          Become an Instructor
         </Link>
+
         <div className="flex items-center gap-4 min-h-[40px]">
-            <Link to="#" className="cursor-pointer relative p-2">
-                <RiShoppingCartLine color="#000" size={25} />
-                <span className="flex items-center justify-center absolute top-[-2px] right-[-5px] bg-purple-600 text-white text-sm font-medium p-1.5 rounded-full h-[20px] w-fit">4</span>
-            </Link>
-
-            <button className="lg:hidden cursor-pointer" onClick={() => setIsSidebarOpen(true)}>
-                 <RiMenu3Line color="#000" size={25} />
-            </button>
-
-            <span className="hidden lg:flex items-center gap-8 lg:border-l border-gray-300 pl-5 ml-5 whitespace-nowrap">
-                <Link to="#" className="text-lg font-medium hover:text-purple-500">
-                Log In
-                </Link>
-                <Link to="#" className="text-lg font-medium bg-purple-600 text-white px-6 py-2 rounded-md text-center">
-                Sign In
-                </Link>
+          <Link to="#" className="cursor-pointer relative p-2">
+            <RiShoppingCartLine color="#000" size={25} />
+            <span className="flex items-center justify-center absolute top-[-2px] right-[-5px] bg-purple-600 text-white text-sm font-medium p-1.5 rounded-full h-[20px] w-fit">
+              4
             </span>
+          </Link>
+
+          <button className="lg:hidden cursor-pointer" onClick={() => setIsSidebarOpen(true)}>
+            <RiMenu3Line color="#000" size={25} />
+          </button>
+
+          <span className="hidden lg:flex items-center gap-8 lg:border-l border-gray-300 pl-5 ml-5 whitespace-nowrap">
+            <Link to="#" className="text-lg font-medium hover:text-purple-500">
+              Log In
+            </Link>
+            <Link to="#" className="text-lg font-medium bg-purple-600 text-white px-6 py-2 rounded-md text-center">
+              Sign In
+            </Link>
+          </span>
         </div>
       </nav>
 
-      <div className={`fixed inset-0 backdrop-blur-sm top-0 left-0 h-[100vh] w-full bg-[#0000001b] bg-opacity-50 z-40 transition-opacity duraton-400 ${
-        isSidebarOpen ? "opacity-200 visible" : "opacity-0 invisible"
-      }`} onClick={() => setIsSidebarOpen(false)}>
+      <div
+        className={`fixed inset-0 backdrop-blur-sm top-0 left-0 h-[100vh] w-full bg-[#0000001b] bg-opacity-50 z-40 transition-opacity duraton-400 ${
+          isSidebarOpen ? "opacity-200 visible" : "opacity-0 invisible"
+        }`}
+        onClick={() => setIsSidebarOpen(false)}
+      />
 
-      </div>
-      <div className={`fixed top-0 left-0 h-[100vh] w-[80%] sm:w-[50%] md:w-[350px] bg-gray-900 shadow-lg z-50 p-5 transition-transform duraton-300 ${
-        isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-      }`}>
-      <Link to="/">
-        <h1 className="font-bold text-xl text-white">
-          SKILL<span className="text-purple-500">MINE</span>
-        </h1>
-      </Link>
-        <button className="absolute top-6 right-6 cursor-pointer" onClick={() => setIsSidebarOpen(false)}>
-          <FaTimes size={25} color="#fff"/>
+      <div
+        className={`fixed top-0 left-0 h-[100vh] w-[80%] sm:w-[50%] md:w-[350px] bg-gray-900 shadow-lg z-50 p-5 transition-transform duraton-300 ${
+          isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
+      >
+        <Link to="/">
+          <h1 className="font-bold text-xl text-white">
+            SKILL<span className="text-purple-500">MINE</span>
+          </h1>
+        </Link>
+
+        <button
+          className="absolute top-6 right-6 cursor-pointer"
+          onClick={() => setIsSidebarOpen(false)}
+        >
+          <FaTimes size={25} color="#fff" />
         </button>
 
         <nav className="relative h-full mt-10 flex flex-col gap-3 text-white">
           <form action="submit" className="flex w-full relative">
-            <input type="text" className="border border-1 border-gray-300 outline-none w-full p-4 pr-17 rounded-[8px]" placeholder="Search Courses..." />
-            <button className="absolute right-0 text-[1em] bg-purple-500 px-5 rounded-tr-[8px] rounded-br-[8px]  h-full transition-ease-in-out duration-0.3s cursor-pointer">
-                <RiSearch2Line color="#fff" size={22} />
+            <input
+              type="text"
+              className="border border-1 border-gray-300 outline-none w-full p-4 pr-17 rounded-[8px]"
+              placeholder="Search Courses..."
+            />
+            <button className="absolute right-0 text-[1em] bg-purple-500 px-5 rounded-tr-[8px] rounded-br-[8px] h-full transition-ease-in-out duration-0.3s cursor-pointer">
+              <RiSearch2Line color="#fff" size={22} />
             </button>
-        </form>
+          </form>
 
-        <div className="flex flex-col gap-2 mt-10">
-          <button onClick={() => setIsCategoryDropdownOpen(!isCategoryDropdownOpen)}
-            className="flex justify-between items-center text-lg font-medium w-full text-left">
+          <div className="flex flex-col gap-2 mt-10">
+            <button
+              onClick={() => setIsCategoryDropdownOpen(!isCategoryDropdownOpen)}
+              className="flex justify-between items-center text-lg font-medium w-full text-left"
+            >
               Category
-              <FaChevronDown color="#fff" className={`transition-transform duration-300 ${
-                isCategoryDropdownOpen ? "rotate-180" : ""
-              }`} />
-          </button>
-          <div className={`overflow-hidden transition-max-height duration-300 ${
-            isCategoryDropdownOpen ? "max-height-[500px]" : "max-h-0"
-          }`}>
-            <ul className="flex flex-col gap-3 pl-4 mt-2 max-h-[200px] overflow-auto scrollbar">
-              {CourseCategories.map((category, index) => (
-                <li key={index}>
-                  <Link
-                    className="hover:text-purple-500 text-white cursor-pointer"
-                    to="#"
-                  >
-                    {category}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+              <FaChevronDown
+                color="#fff"
+                className={`transition-transform duration-300 ${
+                  isCategoryDropdownOpen ? "rotate-180" : ""
+                }`}
+              />
+            </button>
+
+            <div
+              className={`overflow-hidden transition-max-height duration-300 ${
+                isCategoryDropdownOpen ? "max-height-[500px]" : "max-h-0"
+              }`}
+            >
+              <ul className="flex flex-col gap-3 pl-4 mt-2 max-h-[200px] overflow-auto scrollbar">
+                {CourseCategories.map((category, index) => (
+                  <li key={index}>
+                    <Link
+                      className="hover:text-purple-500 text-white cursor-pointer"
+                      to="#"
+                    >
+                      {category}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <Link to="#" className="text-lg font-medium hover:text-purple-500">
+              Become an Instuctor
+            </Link>
           </div>
-          <Link to="#" className="text-lg font-medium hover:text-purple-500">Become an Instuctor</Link>
-        </div>
-        <div className="absolute bottom-20 flex flex-col items-center gap-2 w-full">
-          <Link to="#" className="w-full text-lg font-medium bg-purple-600 text-white px-6 py-3 rounded-md text-center">
-          Login
-          </Link>
-          <Link to="#" className="w-full text-lg font-medium bg-purple-600 text-white px-6 py-3 rounded-md text-center">
-          Sign Up
-          </Link>
-        </div>
+
+          <div className="absolute bottom-20 flex flex-col items-center gap-2 w-full">
+            <Link to="#" className="w-full text-lg font-medium bg-purple-600 text-white px-6 py-3 rounded-md text-center">
+              Login
+            </Link>
+            <Link to="#" className="w-full text-lg font-medium bg-purple-600 text-white px-6 py-3 rounded-md text-center">
+              Sign Up
+            </Link>
+          </div>
         </nav>
       </div>
     </div>
