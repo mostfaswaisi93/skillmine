@@ -1,7 +1,7 @@
-import { React } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
 
+import './App.css';
 import LandingPage from './components/LandingPage';
 
 function App() {
@@ -9,11 +9,11 @@ function App() {
     <div>
       <Router>
         <Routes>
-          <Route path="/" element={<LandingPage/>} />
+          <Route path="/" element={<LandingPage />} />
         </Routes>
       </Router>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
