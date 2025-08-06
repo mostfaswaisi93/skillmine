@@ -1,20 +1,100 @@
-import {React, useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { RiSearch2Line, RiShoppingCartLine, RiMenu3Line } from "react-icons/ri";
-import { FaTimes, FaChevronDown } from "react-icons/fa";
+import {
+  RiSearch2Line,
+  RiShoppingCartLine,
+  RiMenu3Line
+} from "react-icons/ri";
+import {
+  FaTimes,
+  FaChevronDown
+} from "react-icons/fa";
 
 const CourseCategories = [
-    "Art & Design",
-    "Science",
-    "Geography",
-    "Programming",
-    "Mathematics",
-    "Engineering",
-    "Health & Medicine",
-    "Business & Fitness",
-    "History",
-    "Marketing",
-    "Marketing",
-    "Marketing",
-    "Marketing",
-]
+  "Art & Design",
+  "Science",
+  "Geography",
+  "Programming",
+  "Mathematics",
+  "Engineering",
+  "Health & Medicine",
+  "Business & Fitness",
+  "History",
+  "Marketing",
+  "Psychology",
+  "Cybersecurity",
+  "Law",
+  "AI & Machine Learning",
+  "Data Science",
+  "Music & Audio Production"
+];
+
+const Navbar = () => {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isCategoryOpen, setIsCategoryOpen] = useState(false);
+  const [isCategoryDropdownOpen, setIsCategoryDropdownOpen] = useState(false);
+
+  return (
+    <div className="flex items-center justify-center sticky top-0 z-100 bg-[#fff] shadow-md w-full">
+      <nav className="flex items-center w-full max-w-[1400px] justify-between gap-3 px-5 md:px-10 py-4">
+        <span className="flex items-center lg:border-r border-gray-300 min-h-[40px] pr-7">
+          <Link to="/">
+            <h1 className="font-bold text-xl">
+              SKILL<span className="text-purple-500">MINE</span>
+            </h1>
+          </Link>
+        </span>
+
+        <div
+          className="relative hidden lg:block"
+          onMouseEnter={() => setIsCategoryOpen(true)}
+          onMouseLeave={() => setIsCategoryOpen(false)}
+        >
+          <button className="flex items-center gap-2 text-[1rem] cursor-pointer">
+            <RiMenu3Line size={20} />
+            Category
+          </button>
+
+          <div
+            className={`absolute z-20 left-0 w-[250px] mt-3 bg-[#fff] shadow-lg rounded-md p-3 transition-all duration-300 ease-in-out ${
+              isCategoryOpen
+                ? "opacity-100 translate-y-0 visible"
+                : "opacity-0 translate-y-5 invisible"
+            }`}
+          >
+            <ul className="flex flex-col gap-3 pl-4 mt-2 max-h-[300px] overflow-auto">
+              {CourseCategories.map((category, index) => (
+                <li key={index}>
+                  <Link
+                    className="hover:text-purple-500 text-gray-600 cursor-pointer"
+                    to="#"
+                  >
+                    {category}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <form action="submit" className="hidden lg:flex w-[500px] relative">
+            <input type="text" className="border border-1 border-gray-300 text-gray-700 outline-none w-full p-4 pr-10 rounded-[8px]" placeholder="Search Courses..." />
+            <button className="absolute right-4 h-full transition-ease-in-out duration-0.3s cursor-pointer">
+                <RiSearch2Line color="#7d0ed2" size={22} />
+            </button>
+        </form>
+        <Link className="hidden lg:block whitespace-nowrap hover-text-purple-500" to="#">
+            Become an Instructor
+        </Link>
+        <div className="flex items-center gap-4 min-h-[40px]">
+            <Link to="#" className="cursor-pointer relative p-2">
+                <RiShoppingCartLine color="#000" size={25} />
+                <span className="flex items-center justify-center absolute top-[-2px] right-[-5px] bg-purple-600 text-white text-sm font-medium p-1.5 rounded-full h-[20px] w-fit">4</span>
+            </Link>
+        </div>
+      </nav>
+    </div>
+  );
+};
+
+export default Navbar;
