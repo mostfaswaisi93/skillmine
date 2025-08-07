@@ -1,13 +1,26 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
 import StarRatings from "react-star-ratings";
+import { Swiper, SwiperSlide} from "swiper/react";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/pagination";
+import "swiper/css/autoplay";
+import "swiper/css/navigation";
+
+import { FreeMode, Pagination, Navigation } from "swiper/modules";
+
 
 import { Link } from "react-router-dom";
-import { RiSearch2Line } from "react-icons/ri";
+import { RiSearch2Line, RiCheckLine } from "react-icons/ri";
 import "@fontsource/poppins";
 import "@fontsource/poppins/700.css";
+
 import heroBg from "../assets/school-bg.jpg";
+import instructorImg from "../assets/instructorBg2.webp";
+import classroomImg from "../assets/classroomImg.jpg";
 
 import skillImg1 from "../assets/icons/essential-skills.png";
 import skillImg2 from "../assets/icons/certificate.png";
@@ -27,7 +40,7 @@ import category10 from "../assets/icons/dumbbell.png";
 import category11 from "../assets/icons/fashion-design.png";
 import category12 from "../assets/icons/science.png";
 
-import course1 from "../assets/courses/course1.webp";
+import course1 from "../assets/courses/course6.webp";
 import course2 from "../assets/courses/course2.webp";
 import course3 from "../assets/courses/course3.png";
 import course4 from "../assets/courses/course4.webp";
@@ -95,7 +108,7 @@ const categories = [
   },
   {
     img: category9,
-    title: "Buisness"
+    title: "Business"
   },
   {
     img: category10,
@@ -157,7 +170,7 @@ const courses = [
   {
     img: course6,
     tutorAvatar: avatar2,
-    level: "Begginer",
+    level: "Beginner",
     title: "How to Build a Responsive Website Using React and Tailwind CSS",
     price: "Free",
     tutorName: "Mark Daniels",
@@ -185,7 +198,7 @@ const courses = [
   {
     img: course3,
     tutorAvatar: avatar3,
-    level: "Begginer",
+    level: "Beginner",
     title: "How to Build a Responsive Website Using React and Tailwind CSS",
     price: "Free",
     tutorName: "Michael Smith",
@@ -226,6 +239,37 @@ const courses = [
   },
 ]
 
+// const review = [
+//   {
+//     review: "SkillMine is an incridible learning platform! The courses are high quality and easy to follow",
+//     img: reviewImg1,
+//     work: "Web Developer",
+//     name: "William Davids",
+//     ratings: 3
+//   },
+//   {
+//     review: "SkillMine is an incridible learning platform! The courses are high quality and easy to follow",
+//     img: reviewImg2,
+//     work: "Web Developer",
+//     name: "Steve Davids",
+//     ratings: 4.5
+//   },
+//   {
+//     review: "SkillMine is an incridible learning platform! The courses are high quality and easy to follow",
+//     img: reviewImg3,
+//     work: "Web Developer",
+//     name: "Mike Davids",
+//     ratings: 5
+//   },
+//   {
+//     review: "SkillMine is an incridible learning platform! The courses are high quality and easy to follow",
+//     img: reviewImg4,
+//     work: "Web Developer",
+//     name: "John Davids",
+//     ratings: 4
+//   },
+// ]
+
 const LandingPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const filteredCourses = selectedCategory === "All" ? courses : courses.filter((course) => course.courseInfo === selectedCategory);
@@ -252,7 +296,7 @@ const LandingPage = () => {
                 className="text-4xl md:text-5xl lg:text-6xl text-white font-bold max-w-full lg:max-w-[800px] text-balance leading-[50px] md:leading-[80px]"
                 style={{ fontFamily: "poppins, sans-serif" }}
               >
-                <span className="text-[#b958f5]">7,200+</span> Courses Taught By{""}
+                <span className="text-[#b958f5]">7,200+</span> Courses Taught By
                 <span className="text-[#b958f5]"> 720</span> Top Instructors And Institutions
               </h1>
               <p className="md:text-2xl text-xl text-gray-50">
@@ -306,11 +350,11 @@ const LandingPage = () => {
                   <button key={category} 
                   className={`px-4 py-2 rounded-lg cursor-pointer hover:bg-purple-500 hover:text-white ${
                     selectedCategory === category ? "bg-purple-600 text-white" : "bg-gray-100"
-                  }`} onClick={() => selectedCategory(category)}>{category}</button>
+                  }`} onClick={() => setSelectedCategory(category)}>{category}</button>
                 ))}
             </div>
             <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7 w-full mt-10">
-                {filteredCourses.map((course) => (
+                {filteredCourses.map((course, index) => (
                   <Link key={course.id} to="#" className="group flex flex-col items-start gap-2 relative border border-gray-200 transition-ease duration-[0.3s] p-[8px] rounded-lg overflow-hidden">
                     <div className="overflow-hidden w-full">
                       <img src={course.img} className="w-full h-[180px] rounded-lg object-cover group-hover:scale-130 transition-ease duration-[0.4s] opacity-80" alt="image" />
@@ -361,66 +405,140 @@ const LandingPage = () => {
                 Top instructors from across the globe educate millions of students on SkillMine. Renowned experts from various fields share their knowledge, empowering learners worldwide.
               </p>
               <ul className="space-y-4 mt-5 text-[15px] md:text-md">
-                {/* {CourseCategories.map((category, index) => (
-                  <li key={index} className="flex items-center gap-2">
-                  </li>
-                ))} */}
+                <li className="flex items-center gap-2">
+                  <RiSearch2Line color="white" size={19} className="bg-purple-500 rounded-full" />
+                  70% Pay from every course
+                </li>
+                <li className="flex items-center gap-2">
+                  <RiSearch2Line color="white" size={19} className="bg-purple-500 rounded-full" />
+                  70% Pay from every course
+                </li>
+                <li className="flex items-center gap-2">
+                  <RiSearch2Line color="white" size={19} className="bg-purple-500 rounded-full" />
+                  70% Pay from every course
+                </li>
+                <li className="flex items-center gap-2">
+                  <RiSearch2Line color="white" size={19} className="bg-purple-500 rounded-full" />
+                  70% Pay from every course
+                </li>
+                <li className="flex items-center gap-2">
+                  <RiSearch2Line color="white" size={19} className="bg-purple-500 rounded-full" />
+                  70% Pay from every course
+                </li>
+                <li className="flex items-center gap-2">
+                  <RiSearch2Line color="white" size={19} className="bg-purple-500 rounded-full" />
+                  70% Pay from every course
+                </li>
               </ul>
               <button className="flex items-center bg-purple-500 text-white text-lg font-semibold px-6 md:py-4 p-3 rounded-lg cursor-pointer mt-10">
                 Start teaching today
               </button>
             </div>
           </div>
-          <img src={heroBg} alt="" className="md:w-[50%] md:h-full h-[200px] object-cover" />
+          <img src={instructorImg} alt="" className="md:w-[50%] md:h-full h-[200px] object-cover" />
         </div>
 
         <div className="flex md:flex-row flex-col items-center justify-center px-0 h-[100vh] md:mt-0 mt-20">
-            <img src={heroBg} alt="" className="md:w-[50%] md:h-full h-[200px] object-cover" />
+            <img src={classroomImg} alt="" className="md:w-[50%] md:h-full h-[200px] object-cover" />
 
             <div className="md:p-10 p-5 w-full">
               <h1 className="font-semibold text-2xl lg:text-4xl text-balance">Transform Access to Education</h1>
               <p className="text-[15px] md:text-md text-gray-600 mt-2 max-w-[600px]">Create an account to receive our newsletter, course recommendations and promotions. Create an account to receive our newsletter,</p>
-                <ul className="space-y-4 mt-5 text-[15px] md:text-md">
-                {/* {CourseCategories.map((category, index) => (
-                  <li key={index} className="flex items-center gap-2">
-                  </li>
-                ))} */}
+              <ul className="space-y-4 mt-5 text-[15px] md:text-md">
+                <li className="flex items-center gap-2">
+                  <RiSearch2Line color="white" size={19} className="bg-purple-500 rounded-full" />
+                  70% Pay from every course
+                </li>
+                <li className="flex items-center gap-2">
+                  <RiSearch2Line color="white" size={19} className="bg-purple-500 rounded-full" />
+                  70% Pay from every course
+                </li>
+                <li className="flex items-center gap-2">
+                  <RiSearch2Line color="white" size={19} className="bg-purple-500 rounded-full" />
+                  70% Pay from every course
+                </li>
+                <li className="flex items-center gap-2">
+                  <RiSearch2Line color="white" size={19} className="bg-purple-500 rounded-full" />
+                  70% Pay from every course
+                </li>
+                <li className="flex items-center gap-2">
+                  <RiSearch2Line color="white" size={19} className="bg-purple-500 rounded-full" />
+                  70% Pay from every course
+                </li>
+                <li className="flex items-center gap-2">
+                  <RiSearch2Line color="white" size={19} className="bg-purple-500 rounded-full" />
+                  70% Pay from every course
+                </li>
               </ul>
               <button className="flex items-center bg-purple-500 text-white text-lg font-semibold px-6 md:py-4 p-3 rounded-lg cursor-pointer mt-10">
                 Register for free
               </button>
             </div>
         </div>
-        {/* <div className="mt-10 md:mt-20">
+        <div className="mt-10 md:mt-20">
           <div className="relative flex flex-col items-center justify-center gap-0 w-full h-full max-w-[1400px] mx-auto p-5 md:p-10">
             <header className="text-center mb-8">
               <h1 className="text-3xl text-gray-700 font-semibold text-center">Testimonials</h1>
               <p className="text-gray-800 max-w-[600px] mt-2">The ultimate platform for eLearning centers and online courses. Users choose SkillMine for its simplicity in building their websites effortlessly.</p>
-
             </header>
-            <div className="swiper swiper-initialized swiper-horizontal w-full p-5 swiper-backface-hidden">
-              <div className="swiper-wrapper">
-                <div className="swiper-slide swiper-slide-active flex mb-6"></div>
+            <Swiper
+            spaceBetween={20}
+            freemode={false}
+            autoplay={{
+              enabled: true,
+              delay: 200,
+              disabledOnInteraction: false,
+            }}
+            loop={true}
+            navigation={{
+              enabled: true,
+              nextEl: ".next-btn",
+              prevEl: ".prev-btn"
+            }}
+            modules={{FreeMode, Pagination, Navigation}}
+            className="w-full p-5"
+            breakpoint={{
+              540: {slidesPerView: 2},
+              768: {slidesPerView: 2},
+              1024: {slidesPerView: 3},
+              1280: {slidesPerView: 4},
+            }}
+            >
+             {review.map((review, index) => (
+              <div className="flex flex-col items-center justify-center text-center gap-3 w-full border border-gray-200 transition-ease duration-[0.3s] p-5 md:p-10 rounded-lg py-6">
+                <div className="border border-4 border-purple-100 rounded-full p-1">
+                  <img src={review.img} className="w-[160px] h-[160px] rounded-full object-cover" alt="review-image" />
+                </div>
+                <div className="mt-2">
+                  <p className="text-xl font-semibold"></p>
+                  <p className="text-md text-gray=700"></p>
+                      <StarRatings rating={course.rating}
+                       starRatedColor="orange"
+                        starEmptyColor="gray"
+                        startHoverColor="orangered"
+                        numberOfStars={5}
+                        name="rating"
+                        starDimension="15px"
+                        starSpacing="1px"
+                        />
+                </div>
+                <div className="flex flex-col item-center justify-center">
+                  <p className="text-gray-700 mt-2"></p>
+                </div>
               </div>
-            </div>
-            <div className="flex gap-10">
-              <button className="prev-btn cursor-pointer bg-purple-500 rounded-full p-2">
-                
-              </button>
-              <button className="next-btn cursor-pointer bg-purple-500 rounded-full p-2">
-
-              </button>
-            </div>
+              ))}
+            </Swiper>
           </div>
-        </div> */}
-        {/* <div className="bg-gray-50 mt-20 py-20">
+        </div>
+        <div className="bg-gray-50 mt-20 py-20">
           <div className="relative w-full h-full">
             <h1 className="text-3xl text-gray-700 font-semibold text-center">Our Partners</h1>
             <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-10 max-w-[1400px] mx-auto p-5 md:p-10 whitespace-nowrap mt-5">
               <img src="" alt="partener-img" className="w-[90px] md:w-[120px] h-auto object-cover mx-auto" />
             </div>
           </div>
-        </div> */}
+        </div>
+        {/* <Footer /> */}
         {/* <footer className="bg-gray-50 flex flex-col items-center justify-center h-full w-full mt-10 px-0">
           <div className="text-start w-full max-w-[1400px] mx-auto p-5 md:p-10">
             <ul className="flex flex-row flex-wrap justify-between gap-20 w-full mt-2 py-5">
