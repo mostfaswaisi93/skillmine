@@ -24,19 +24,19 @@ import category10 from "../assets/icons/dumbbell.png";
 import category11 from "../assets/icons/fashion-design.png";
 import category12 from "../assets/icons/science.png";
 
-import course1 from "../assets/courses/course1.png";
-import course2 from "../assets/courses/course2.png";
-import course3 from "../assets/courses/course3.png";
-import course4 from "../assets/courses/course4.png";
-import course5 from "../assets/courses/course5.png";
-import course6 from "../assets/courses/course6.png";
-import course7 from "../assets/courses/course1.png";
-import course8 from "../assets/courses/course2.png";
-import course9 from "../assets/courses/course3.png";
+// import course1 from "../assets/courses/course1.png";
+// import course2 from "../assets/courses/course2.png";
+// import course3 from "../assets/courses/course3.png";
+// import course4 from "../assets/courses/course4.webp";
+// import course5 from "../assets/courses/course5.webp";
+// import course6 from "../assets/courses/course6.png";
+// import course7 from "../assets/courses/course1.png";
+// import course8 from "../assets/courses/course2.png";
+// import course9 from "../assets/courses/course3.png";
 
-import avatar1 from "../assets/avatar/1.jpg";
-import avatar2 from "../assets/avatar/2.jpg";
-import avatar3 from "../assets/avatar/3.jpg";
+// import avatar1 from "../assets/avatar/course1.png";
+// import avatar2 from "../assets/avatar/2.jpg";
+// import avatar3 from "../assets/avatar/3.jpg";
 
 const requirements = [
   {
@@ -108,134 +108,134 @@ const categories = [
   },
 ]
 
-const courses = [
-  {
-    img: course8,
-    tutorAvatar: avatar1,
-    level: "pro",
-    title: "How to Build a Responsive Website Using React and Tailwind CSS",
-    price: "$19.00",
-    tutorName: "James Maximus",
-    tutorImg: avatar1,
-    canceledPrice: "$25.19",
-    courseInfo: "Arts & Design",
-    courseDiscount: "-10%",
-    rating: 4,
-    description: ""
-  },
-  {
-    img: course8,
-    tutorAvatar: avatar1,
-    level: "pro",
-    title: "How to Build a Responsive Website Using React and Tailwind CSS",
-    price: "$19.00",
-    tutorName: "James Maximus",
-    tutorImg: avatar1,
-    canceledPrice: "$25.19",
-    courseInfo: "Arts & Design",
-    courseDiscount: "-10%",
-    rating: 4,
-    description: ""
-  },
-  {
-    img: course8,
-    tutorAvatar: avatar1,
-    level: "pro",
-    title: "How to Build a Responsive Website Using React and Tailwind CSS",
-    price: "$19.00",
-    tutorName: "James Maximus",
-    tutorImg: avatar1,
-    canceledPrice: "$25.19",
-    courseInfo: "Arts & Design",
-    courseDiscount: "-10%",
-    rating: 4,
-    description: ""
-  },
-  {
-    img: course8,
-    tutorAvatar: avatar1,
-    level: "pro",
-    title: "How to Build a Responsive Website Using React and Tailwind CSS",
-    price: "$19.00",
-    tutorName: "James Maximus",
-    tutorImg: avatar1,
-    canceledPrice: "$25.19",
-    courseInfo: "Arts & Design",
-    courseDiscount: "-10%",
-    rating: 4,
-    description: ""
-  },
-  {
-    img: course8,
-    tutorAvatar: avatar1,
-    level: "pro",
-    title: "How to Build a Responsive Website Using React and Tailwind CSS",
-    price: "$19.00",
-    tutorName: "James Maximus",
-    tutorImg: avatar1,
-    canceledPrice: "$25.19",
-    courseInfo: "Arts & Design",
-    courseDiscount: "-10%",
-    rating: 4,
-    description: ""
-  },
-  {
-    img: course8,
-    tutorAvatar: avatar1,
-    level: "pro",
-    title: "How to Build a Responsive Website Using React and Tailwind CSS",
-    price: "$19.00",
-    tutorName: "James Maximus",
-    tutorImg: avatar1,
-    canceledPrice: "$25.19",
-    courseInfo: "Arts & Design",
-    courseDiscount: "-10%",
-    rating: 4,
-    description: ""
-  },
-  {
-    img: course8,
-    tutorAvatar: avatar1,
-    level: "pro",
-    title: "How to Build a Responsive Website Using React and Tailwind CSS",
-    price: "$19.00",
-    tutorName: "James Maximus",
-    tutorImg: avatar1,
-    canceledPrice: "$25.19",
-    courseInfo: "Arts & Design",
-    courseDiscount: "-10%",
-    rating: 4,
-    description: ""
-  },
-  {
-    img: course8,
-    tutorAvatar: avatar1,
-    level: "pro",
-    title: "How to Build a Responsive Website Using React and Tailwind CSS",
-    price: "$19.00",
-    tutorName: "James Maximus",
-    tutorImg: avatar1,
-    canceledPrice: "$25.19",
-    courseInfo: "Arts & Design",
-    courseDiscount: "-10%",
-    rating: 4,
-    description: ""
-  },
-  {
-    img: course8,
-    tutorAvatar: avatar1,
-    level: "pro",
-    title: "How to Build a Responsive Website Using React and Tailwind CSS",
-    price: "$19.00",
-    tutorName: "James Maximus",
-    tutorImg: avatar1,
-    canceledPrice: "$25.19",
-    courseInfo: "Arts & Design",
-    courseDiscount: "-10%",
-    rating: 4,
-    description: ""
-  },
-]
+// const courses = [
+//   {
+//     img: course8,
+//     tutorAvatar: avatar1,
+//     level: "pro",
+//     title: "How to Build a Responsive Website Using React and Tailwind CSS",
+//     price: "$19.00",
+//     tutorName: "James Maximus",
+//     tutorImg: avatar1,
+//     canceledPrice: "$25.19",
+//     courseInfo: "Arts & Design",
+//     courseDiscount: "-10%",
+//     rating: 4,
+//     description: ""
+//   },
+//   {
+//     img: course8,
+//     tutorAvatar: avatar1,
+//     level: "pro",
+//     title: "How to Build a Responsive Website Using React and Tailwind CSS",
+//     price: "$19.00",
+//     tutorName: "James Maximus",
+//     tutorImg: avatar1,
+//     canceledPrice: "$25.19",
+//     courseInfo: "Arts & Design",
+//     courseDiscount: "-10%",
+//     rating: 4,
+//     description: ""
+//   },
+//   {
+//     img: course8,
+//     tutorAvatar: avatar1,
+//     level: "pro",
+//     title: "How to Build a Responsive Website Using React and Tailwind CSS",
+//     price: "$19.00",
+//     tutorName: "James Maximus",
+//     tutorImg: avatar1,
+//     canceledPrice: "$25.19",
+//     courseInfo: "Arts & Design",
+//     courseDiscount: "-10%",
+//     rating: 4,
+//     description: ""
+//   },
+//   {
+//     img: course8,
+//     tutorAvatar: avatar1,
+//     level: "pro",
+//     title: "How to Build a Responsive Website Using React and Tailwind CSS",
+//     price: "$19.00",
+//     tutorName: "James Maximus",
+//     tutorImg: avatar1,
+//     canceledPrice: "$25.19",
+//     courseInfo: "Arts & Design",
+//     courseDiscount: "-10%",
+//     rating: 4,
+//     description: ""
+//   },
+//   {
+//     img: course8,
+//     tutorAvatar: avatar1,
+//     level: "pro",
+//     title: "How to Build a Responsive Website Using React and Tailwind CSS",
+//     price: "$19.00",
+//     tutorName: "James Maximus",
+//     tutorImg: avatar1,
+//     canceledPrice: "$25.19",
+//     courseInfo: "Arts & Design",
+//     courseDiscount: "-10%",
+//     rating: 4,
+//     description: ""
+//   },
+//   {
+//     img: course8,
+//     tutorAvatar: avatar1,
+//     level: "pro",
+//     title: "How to Build a Responsive Website Using React and Tailwind CSS",
+//     price: "$19.00",
+//     tutorName: "James Maximus",
+//     tutorImg: avatar1,
+//     canceledPrice: "$25.19",
+//     courseInfo: "Arts & Design",
+//     courseDiscount: "-10%",
+//     rating: 4,
+//     description: ""
+//   },
+//   {
+//     img: course8,
+//     tutorAvatar: avatar1,
+//     level: "pro",
+//     title: "How to Build a Responsive Website Using React and Tailwind CSS",
+//     price: "$19.00",
+//     tutorName: "James Maximus",
+//     tutorImg: avatar1,
+//     canceledPrice: "$25.19",
+//     courseInfo: "Arts & Design",
+//     courseDiscount: "-10%",
+//     rating: 4,
+//     description: ""
+//   },
+//   {
+//     img: course8,
+//     tutorAvatar: avatar1,
+//     level: "pro",
+//     title: "How to Build a Responsive Website Using React and Tailwind CSS",
+//     price: "$19.00",
+//     tutorName: "James Maximus",
+//     tutorImg: avatar1,
+//     canceledPrice: "$25.19",
+//     courseInfo: "Arts & Design",
+//     courseDiscount: "-10%",
+//     rating: 4,
+//     description: ""
+//   },
+//   {
+//     img: course8,
+//     tutorAvatar: avatar1,
+//     level: "pro",
+//     title: "How to Build a Responsive Website Using React and Tailwind CSS",
+//     price: "$19.00",
+//     tutorName: "James Maximus",
+//     tutorImg: avatar1,
+//     canceledPrice: "$25.19",
+//     courseInfo: "Arts & Design",
+//     courseDiscount: "-10%",
+//     rating: 4,
+//     description: ""
+//   },
+// ]
 
 const LandingPage = () => {
   return (
@@ -327,7 +327,7 @@ const LandingPage = () => {
         </div>
 
 
-        <div className="flex md:flex-row flex-col-reverse h-[100vh] mt-20 overflow-hidden">
+        {/* <div className="flex md:flex-row flex-col-reverse h-[100vh] mt-20 overflow-hidden">
           <div className="flex md:w-[50%] relative items-center md:justify-end p-5 md:mx-auto z-0">
             <div className="md:p-10">
               <h1 className="font-semibold text-3xl lg:text-4xl">Becom An Instructor</h1>
@@ -335,10 +335,10 @@ const LandingPage = () => {
                 Top instructors from across the globe educate millions of students on SkillMine. Renowned experts from various fields share their knowledge, empowering learners worldwide.
               </p>
               <ul className="space-y-4 mt-5 text-[15px] md:text-md">
-                {/* {CourseCategories.map((category, index) => (
+                {CourseCategories.map((category, index) => (
                   <li key={index} className="flex items-center gap-2">
                   </li>
-                ))} */}
+                ))}
               </ul>
               <button className="flex items-center bg-purple-500 text-white text-lg font-semibold px-6 md:py-4 p-3 rounded-lg cursor-pointer mt-10">
                 Start teaching today
@@ -346,26 +346,26 @@ const LandingPage = () => {
             </div>
           </div>
           <img src={heroBg} alt="" className="md:w-[50%] md:h-full h-[200px] object-cover" />
-        </div>
+        </div> */}
 
-        <div className="flex md:flex-row flex-col items-center justify-center px-0 h-[100vh] md:mt-0 mt-20">
+        {/* <div className="flex md:flex-row flex-col items-center justify-center px-0 h-[100vh] md:mt-0 mt-20">
             <img src={heroBg} alt="" className="md:w-[50%] md:h-full h-[200px] object-cover" />
 
             <div className="md:p-10 p-5 w-full">
               <h1 className="font-semibold text-2xl lg:text-4xl text-balance">Transform Access to Education</h1>
               <p className="text-[15px] md:text-md text-gray-600 mt-2 max-w-[600px]">Create an account to receive our newsletter, course recommendations and promotions. Create an account to receive our newsletter,</p>
                 <ul className="space-y-4 mt-5 text-[15px] md:text-md">
-                {/* {CourseCategories.map((category, index) => (
+                {CourseCategories.map((category, index) => (
                   <li key={index} className="flex items-center gap-2">
                   </li>
-                ))} */}
+                ))}
               </ul>
               <button className="flex items-center bg-purple-500 text-white text-lg font-semibold px-6 md:py-4 p-3 rounded-lg cursor-pointer mt-10">
                 Register for free
               </button>
             </div>
-        </div>
-        <div className="mt-10 md:mt-20">
+        </div> */}
+        {/* <div className="mt-10 md:mt-20">
           <div className="relative flex flex-col items-center justify-center gap-0 w-full h-full max-w-[1400px] mx-auto p-5 md:p-10">
             <header className="text-center mb-8">
               <h1 className="text-3xl text-gray-700 font-semibold text-center">Testimonials</h1>
@@ -386,16 +386,16 @@ const LandingPage = () => {
               </button>
             </div>
           </div>
-        </div>
-        <div className="bg-gray-50 mt-20 py-20">
+        </div> */}
+        {/* <div className="bg-gray-50 mt-20 py-20">
           <div className="relative w-full h-full">
             <h1 className="text-3xl text-gray-700 font-semibold text-center">Our Partners</h1>
             <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-10 max-w-[1400px] mx-auto p-5 md:p-10 whitespace-nowrap mt-5">
               <img src="" alt="partener-img" className="w-[90px] md:w-[120px] h-auto object-cover mx-auto" />
             </div>
           </div>
-        </div>
-        <footer className="bg-gray-50 flex flex-col items-center justify-center h-full w-full mt-10 px-0">
+        </div> */}
+        {/* <footer className="bg-gray-50 flex flex-col items-center justify-center h-full w-full mt-10 px-0">
           <div className="text-start w-full max-w-[1400px] mx-auto p-5 md:p-10">
             <ul className="flex flex-row flex-wrap justify-between gap-20 w-full mt-2 py-5">
               <li className="flex flex-col gap-5 w-full md:w-fit justify-start"></li>
@@ -405,7 +405,7 @@ const LandingPage = () => {
           <p className="w-full text-center text-[13px] font-medium mt-4 border-t border-gray-300 py-5">
             Copyright © 2025 SkillMine. All rights reserved
           </p>
-        </footer>
+        </footer> */}
       </main>
     </div>
   );
