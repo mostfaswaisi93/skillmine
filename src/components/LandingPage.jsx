@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
+
+import StarRatings from "react-star-ratings";
+
 import { Link } from "react-router-dom";
 import { RiSearch2Line } from "react-icons/ri";
 import "@fontsource/poppins";
@@ -24,19 +27,19 @@ import category10 from "../assets/icons/dumbbell.png";
 import category11 from "../assets/icons/fashion-design.png";
 import category12 from "../assets/icons/science.png";
 
-// import course1 from "../assets/courses/course1.png";
-// import course2 from "../assets/courses/course2.png";
-// import course3 from "../assets/courses/course3.png";
-// import course4 from "../assets/courses/course4.webp";
-// import course5 from "../assets/courses/course5.webp";
-// import course6 from "../assets/courses/course6.png";
-// import course7 from "../assets/courses/course1.png";
-// import course8 from "../assets/courses/course2.png";
-// import course9 from "../assets/courses/course3.png";
+import course1 from "../assets/courses/course1.webp";
+import course2 from "../assets/courses/course2.webp";
+import course3 from "../assets/courses/course3.png";
+import course4 from "../assets/courses/course4.webp";
+import course5 from "../assets/courses/course5.png";
+import course6 from "../assets/courses/course6.webp";
+import course7 from "../assets/courses/course1.webp";
+import course8 from "../assets/courses/course2.webp";
+import course9 from "../assets/courses/course3.webp";
 
-// import avatar1 from "../assets/avatar/course1.png";
-// import avatar2 from "../assets/avatar/2.jpg";
-// import avatar3 from "../assets/avatar/3.jpg";
+import avatar1 from "../assets/avatar/1.png";
+import avatar2 from "../assets/avatar/2.png";
+import avatar3 from "../assets/avatar/3.png";
 
 const requirements = [
   {
@@ -108,136 +111,124 @@ const categories = [
   },
 ]
 
-// const courses = [
-//   {
-//     img: course8,
-//     tutorAvatar: avatar1,
-//     level: "pro",
-//     title: "How to Build a Responsive Website Using React and Tailwind CSS",
-//     price: "$19.00",
-//     tutorName: "James Maximus",
-//     tutorImg: avatar1,
-//     canceledPrice: "$25.19",
-//     courseInfo: "Arts & Design",
-//     courseDiscount: "-10%",
-//     rating: 4,
-//     description: ""
-//   },
-//   {
-//     img: course8,
-//     tutorAvatar: avatar1,
-//     level: "pro",
-//     title: "How to Build a Responsive Website Using React and Tailwind CSS",
-//     price: "$19.00",
-//     tutorName: "James Maximus",
-//     tutorImg: avatar1,
-//     canceledPrice: "$25.19",
-//     courseInfo: "Arts & Design",
-//     courseDiscount: "-10%",
-//     rating: 4,
-//     description: ""
-//   },
-//   {
-//     img: course8,
-//     tutorAvatar: avatar1,
-//     level: "pro",
-//     title: "How to Build a Responsive Website Using React and Tailwind CSS",
-//     price: "$19.00",
-//     tutorName: "James Maximus",
-//     tutorImg: avatar1,
-//     canceledPrice: "$25.19",
-//     courseInfo: "Arts & Design",
-//     courseDiscount: "-10%",
-//     rating: 4,
-//     description: ""
-//   },
-//   {
-//     img: course8,
-//     tutorAvatar: avatar1,
-//     level: "pro",
-//     title: "How to Build a Responsive Website Using React and Tailwind CSS",
-//     price: "$19.00",
-//     tutorName: "James Maximus",
-//     tutorImg: avatar1,
-//     canceledPrice: "$25.19",
-//     courseInfo: "Arts & Design",
-//     courseDiscount: "-10%",
-//     rating: 4,
-//     description: ""
-//   },
-//   {
-//     img: course8,
-//     tutorAvatar: avatar1,
-//     level: "pro",
-//     title: "How to Build a Responsive Website Using React and Tailwind CSS",
-//     price: "$19.00",
-//     tutorName: "James Maximus",
-//     tutorImg: avatar1,
-//     canceledPrice: "$25.19",
-//     courseInfo: "Arts & Design",
-//     courseDiscount: "-10%",
-//     rating: 4,
-//     description: ""
-//   },
-//   {
-//     img: course8,
-//     tutorAvatar: avatar1,
-//     level: "pro",
-//     title: "How to Build a Responsive Website Using React and Tailwind CSS",
-//     price: "$19.00",
-//     tutorName: "James Maximus",
-//     tutorImg: avatar1,
-//     canceledPrice: "$25.19",
-//     courseInfo: "Arts & Design",
-//     courseDiscount: "-10%",
-//     rating: 4,
-//     description: ""
-//   },
-//   {
-//     img: course8,
-//     tutorAvatar: avatar1,
-//     level: "pro",
-//     title: "How to Build a Responsive Website Using React and Tailwind CSS",
-//     price: "$19.00",
-//     tutorName: "James Maximus",
-//     tutorImg: avatar1,
-//     canceledPrice: "$25.19",
-//     courseInfo: "Arts & Design",
-//     courseDiscount: "-10%",
-//     rating: 4,
-//     description: ""
-//   },
-//   {
-//     img: course8,
-//     tutorAvatar: avatar1,
-//     level: "pro",
-//     title: "How to Build a Responsive Website Using React and Tailwind CSS",
-//     price: "$19.00",
-//     tutorName: "James Maximus",
-//     tutorImg: avatar1,
-//     canceledPrice: "$25.19",
-//     courseInfo: "Arts & Design",
-//     courseDiscount: "-10%",
-//     rating: 4,
-//     description: ""
-//   },
-//   {
-//     img: course8,
-//     tutorAvatar: avatar1,
-//     level: "pro",
-//     title: "How to Build a Responsive Website Using React and Tailwind CSS",
-//     price: "$19.00",
-//     tutorName: "James Maximus",
-//     tutorImg: avatar1,
-//     canceledPrice: "$25.19",
-//     courseInfo: "Arts & Design",
-//     courseDiscount: "-10%",
-//     rating: 4,
-//     description: ""
-//   },
-// ]
+const courses = [
+  {
+    img: course8,
+    tutorAvatar: avatar1,
+    level: "Pro",
+    title: "How to Build a Responsive Website Using React and Tailwind CSS",
+    price: "$19.00",
+    tutorName: "James Maximus",
+    tutorImg: avatar1,
+    canceledPrice: "$25.19",
+    courseInfo: "Arts & Design",
+    courseDiscount: "-10%",
+    rating: 4,
+    description: "Take this negotiation course today and you'll learn to negotiate masterfully"
+  },
+  {
+    img: course9,
+    tutorAvatar: avatar3,
+    level: "Expert",
+    title: "How to Build a Responsive Website Using React and Tailwind CSS",
+    price: "$39.00",
+    tutorName: "Rodney Mark",
+    tutorImg: avatar2,
+    canceledPrice: "$45.19",
+    courseInfo: "Popular",
+    courseDiscount: "-20%",
+    rating: 5,
+    description: "Take this negotiation course today and you'll learn to negotiate masterfully"
+  },
+  {
+    img: course7,
+    tutorAvatar: avatar1,
+    level: "Expert",
+    title: "How to Build a Responsive Website Using React and Tailwind CSS",
+    price: "$10.00",
+    tutorName: "John Tyler",
+    tutorImg: avatar1,
+    canceledPrice: "$25.19",
+    courseInfo: "Featured",
+    courseDiscount: "-15%",
+    rating: 4.5,
+    description: "Take this negotiation course today and you'll learn to negotiate masterfully"
+  },
+  {
+    img: course6,
+    tutorAvatar: avatar2,
+    level: "Begginer",
+    title: "How to Build a Responsive Website Using React and Tailwind CSS",
+    price: "Free",
+    tutorName: "Mark Daniels",
+    tutorImg: avatar1,
+    canceledPrice: "",
+    courseInfo: "Popular",
+    courseDiscount: "",
+    rating: 3,
+    description: "Take this negotiation course today and you'll learn to negotiate masterfully"
+  },
+  {
+    img: course8,
+    tutorAvatar: avatar1,
+    level: "Pro",
+    title: "How to Build a Responsive Website Using React and Tailwind CSS",
+    price: "$9.00",
+    tutorName: "Kate Davids",
+    tutorImg: avatar1,
+    canceledPrice: "$35.19",
+    courseInfo: "Popular",
+    courseDiscount: "-19%",
+    rating: 4.6,
+    description: "Take this negotiation course today and you'll learn to negotiate masterfully"
+  },
+  {
+    img: course3,
+    tutorAvatar: avatar3,
+    level: "Begginer",
+    title: "How to Build a Responsive Website Using React and Tailwind CSS",
+    price: "Free",
+    tutorName: "Michael Smith",
+    tutorImg: avatar1,
+    canceledPrice: "",
+    courseInfo: "Trending",
+    courseDiscount: "",
+    rating: 5,
+    description: "Take this negotiation course today and you'll learn to negotiate masterfully"
+  },
+  {
+    img: course1,
+    tutorAvatar: avatar1,
+    level: "Expert",
+    title: "How to Build a Responsive Website Using React and Tailwind CSS",
+    price: "$29.00",
+    tutorName: "Travis Wills",
+    tutorImg: avatar1,
+    canceledPrice: "$35.19",
+    courseInfo: "Featured",
+    courseDiscount: "-20%",
+    rating: 4.5,
+    description: "Take this negotiation course today and you'll learn to negotiate masterfully"
+  },
+  {
+    img: course4,
+    tutorAvatar: avatar2,
+    level: "Pro",
+    title: "How to Build a Responsive Website Using React and Tailwind CSS",
+    price: "Free",
+    tutorName: "Josh Damian",
+    tutorImg: avatar2,
+    canceledPrice: "",
+    courseInfo: "Trending",
+    courseDiscount: "",
+    rating: 4.5,
+    description: "Take this negotiation course today and you'll learn to negotiate masterfully"
+  },
+]
 
 const LandingPage = () => {
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const filteredCourses = selectedCategory === "All" ? courses : courses.filter((course) => course.courseInfo === selectedCategory);
   return (
     <div>
       <Navbar />
@@ -310,15 +301,51 @@ const LandingPage = () => {
           <div className="flex flex-col items-center justify-center w-full max-w-[1400px] p-5 md:p-10">
             <h1 className="text-3xl text-gray-700 font-semibold text-center">Most Popular Courses</h1>
             <div className="flex w-full items-start md:item-center md:justify-center gap-2 mt-5 whitespace-nowrap overflow-x-auto">
-              <button className="px-4 py-2 rounded-lg cursor-pointer hover:bg-purple-500 hover:text-white bg-purple-600 text-white">All</button>
-              <button className="px-4 py-2 rounded-lg cursor-pointer hover:bg-purple-500 hover:text-white bg-purple-600">Trending</button>
-              <button className="px-4 py-2 rounded-lg cursor-pointer hover:bg-purple-500 hover:text-white bg-purple-600">Popular</button>
-              <button className="px-4 py-2 rounded-lg cursor-pointer hover:bg-purple-500 hover:text-white bg-purple-600">Featured</button>
-              <button className="px-4 py-2 rounded-lg cursor-pointer hover:bg-purple-500 hover:text-white bg-purple-600">Arts & Design</button>
+              {["All", "Trending", "Popular", "Featured", "Arts & Design"].map(
+                (category) => (
+                  <button key={category} 
+                  className={`px-4 py-2 rounded-lg cursor-pointer hover:bg-purple-500 hover:text-white ${
+                    selectedCategory === category ? "bg-purple-600 text-white" : "bg-gray-100"
+                  }`} onClick={() => selectedCategory(category)}>{category}</button>
+                ))}
             </div>
             <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7 w-full mt-10">
-              <Link className="group flex flex-col items-start gap-2 relative border border-gray-200 transition-ease duration-[0.3s] p-[8px] rounded-lg overflow-hidden">
-              </Link>
+                {filteredCourses.map((course) => (
+                  <Link key={course.id} to="#" className="group flex flex-col items-start gap-2 relative border border-gray-200 transition-ease duration-[0.3s] p-[8px] rounded-lg overflow-hidden">
+                    <div className="overflow-hidden w-full">
+                      <img src={course.img} className="w-full h-[180px] rounded-lg object-cover group-hover:scale-130 transition-ease duration-[0.4s] opacity-80" alt="image" />
+                    </div>
+                    <span className="flex items-center gap-3 absolute top-5 left-5">
+                      <p className="bg-purple-600 text-white text-sm px-3 rounded-full">{course.courseInfo}</p>
+                      {course.courseDiscount && (
+                      <p className="bg-green-500 text-white text-sm px-3 rounded-full">{course.courseDiscount}</p>
+                      )}
+                    </span>
+                    <p className="bg-purple-500 text-purple-50 text-sm px-3 rounded-full">{course.level}</p>
+                    <div className="mt-2">
+                      <p className="font-semibold text-md">{course.tutorName}</p>
+                      <p className="font-medium text-[15px] mt-1">{course.title}</p>
+                    </div>
+                    <div className="flex items-center gap-2 mt-2">
+                      <StarRatings rating={course.rating}
+                       starRatedColor="orange"
+                        starEmptyColor="gray"
+                        startHoverColor="orangered"
+                        numberOfStars={5}
+                        name="rating"
+                        starDimension="15px"
+                        starSpacing="1px"
+                        />
+                      <p className="text-[13px] text-gray-700">{course.rating}</p>
+                    </div>
+                    <span className="flex gap-2 mt-2">
+                      <p className="font-semibold text-lg text-purple-900">{course.price}</p>
+                      {course.canceledPrice && (
+                      <p className="text-gray-400 text-md line-through">{course.canceledPrice}</p>
+                      )}
+                    </span>
+                  </Link>
+                ))}
             </div>
             <button className="mt-20 bg-purple-600 hover:bg-purple-700 w-[250px] p-4 rounded-xl text-lg font-semibold text-white border-3 border-purple-300 cursor-pointer transition-ease-in-out duration-0.3s">
               View More Courses
@@ -326,8 +353,7 @@ const LandingPage = () => {
           </div>
         </div>
 
-
-        {/* <div className="flex md:flex-row flex-col-reverse h-[100vh] mt-20 overflow-hidden">
+        <div className="flex md:flex-row flex-col-reverse h-[100vh] mt-20 overflow-hidden">
           <div className="flex md:w-[50%] relative items-center md:justify-end p-5 md:mx-auto z-0">
             <div className="md:p-10">
               <h1 className="font-semibold text-3xl lg:text-4xl">Becom An Instructor</h1>
@@ -335,10 +361,10 @@ const LandingPage = () => {
                 Top instructors from across the globe educate millions of students on SkillMine. Renowned experts from various fields share their knowledge, empowering learners worldwide.
               </p>
               <ul className="space-y-4 mt-5 text-[15px] md:text-md">
-                {CourseCategories.map((category, index) => (
+                {/* {CourseCategories.map((category, index) => (
                   <li key={index} className="flex items-center gap-2">
                   </li>
-                ))}
+                ))} */}
               </ul>
               <button className="flex items-center bg-purple-500 text-white text-lg font-semibold px-6 md:py-4 p-3 rounded-lg cursor-pointer mt-10">
                 Start teaching today
@@ -346,25 +372,25 @@ const LandingPage = () => {
             </div>
           </div>
           <img src={heroBg} alt="" className="md:w-[50%] md:h-full h-[200px] object-cover" />
-        </div> */}
+        </div>
 
-        {/* <div className="flex md:flex-row flex-col items-center justify-center px-0 h-[100vh] md:mt-0 mt-20">
+        <div className="flex md:flex-row flex-col items-center justify-center px-0 h-[100vh] md:mt-0 mt-20">
             <img src={heroBg} alt="" className="md:w-[50%] md:h-full h-[200px] object-cover" />
 
             <div className="md:p-10 p-5 w-full">
               <h1 className="font-semibold text-2xl lg:text-4xl text-balance">Transform Access to Education</h1>
               <p className="text-[15px] md:text-md text-gray-600 mt-2 max-w-[600px]">Create an account to receive our newsletter, course recommendations and promotions. Create an account to receive our newsletter,</p>
                 <ul className="space-y-4 mt-5 text-[15px] md:text-md">
-                {CourseCategories.map((category, index) => (
+                {/* {CourseCategories.map((category, index) => (
                   <li key={index} className="flex items-center gap-2">
                   </li>
-                ))}
+                ))} */}
               </ul>
               <button className="flex items-center bg-purple-500 text-white text-lg font-semibold px-6 md:py-4 p-3 rounded-lg cursor-pointer mt-10">
                 Register for free
               </button>
             </div>
-        </div> */}
+        </div>
         {/* <div className="mt-10 md:mt-20">
           <div className="relative flex flex-col items-center justify-center gap-0 w-full h-full max-w-[1400px] mx-auto p-5 md:p-10">
             <header className="text-center mb-8">
