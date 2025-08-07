@@ -11,6 +11,19 @@ import skillImg2 from "../assets/icons/certificate.png";
 import skillImg3 from "../assets/icons/career-upgrade.png";
 import skillImg4 from "../assets/icons/career-master.png";
 
+import category1 from "../assets/icons/marketing.png";
+import category2 from "../assets/icons/art.png";
+import category3 from "../assets/icons/graphic-design.png";
+import category4 from "../assets/icons/programming.png";
+import category5 from "../assets/icons/photography.png";
+import category6 from "../assets/icons/music.png";
+import category7 from "../assets/icons/data.png";
+import category8 from "../assets/icons/budget.png";
+import category9 from "../assets/icons/portfolio.png";
+import category10 from "../assets/icons/dumbbell.png";
+import category11 from "../assets/icons/fashion-design.png";
+import category12 from "../assets/icons/science.png";
+
 const requirements = [
   {
     img: skillImg1,
@@ -27,6 +40,57 @@ const requirements = [
   {
     img: skillImg4,
     title: "Master Different Areas"
+  },
+]
+
+const categories = [
+  {
+    img: category1,
+    title: "Art & Design"
+  },
+  {
+    img: category2,
+    title: "Graphic Design"
+  },
+  {
+    img: category3,
+    title: "Marketing"
+  },
+  {
+    img: category4,
+    title: "Developement"
+  },
+  {
+    img: category5,
+    title: "Photography"
+  },
+  {
+    img: category6,
+    title: "Music"
+  },
+  {
+    img: category7,
+    title: "Data Analysis"
+  },
+  {
+    img: category8,
+    title: "Finance"
+  },
+  {
+    img: category9,
+    title: "Buisness"
+  },
+  {
+    img: category10,
+    title: "Health & Fitness"
+  },
+  {
+    img: category11,
+    title: "Fashion"
+  },
+  {
+    img: category12,
+    title: "Science & Technology"
   },
 ]
 
@@ -83,6 +147,66 @@ const LandingPage = () => {
                   </div>
               ))}
           </span>
+        </div>
+
+        <div className="flex flex-col items-center justify-center w-full gap-10 mt-30">
+          <div className="max-w-[1400px] w-full p-5 md:p-10">
+            <h1 className="text-3xl text-gray-700 font-semibold text-center">Top Categories</h1>
+            <span className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center gap-7 w-full my-8">
+              {categories.map((category, index) => (
+                <Link to="/" key={index} className="group flex md:flex-col items-center w-full gap-4 cursor-pointer hover:bg-purple-500 hover:text-white transition-ease duration-[0.3s] md:px-10 px-4 p-3 md:py-4 rounded-lg border border-gray-200 ">
+                    <img className="w-[50px] group-hover:brightness-0 group-hover:invert" src={category.img} alt="image" />
+                    <p>{category.title}</p>
+                </Link>
+              ))}
+            </span>
+          </div>
+        </div>
+
+        <div className="flex flex-col items-center justify-center w-full gap-10 mt-10">
+          <div className="flex flex-col items-center justify-center w-full max-w-[1400px] p-5 md:p-10">
+            <h1 className="text-3xl text-gray-700 font-semibold text-center">Most Popular Courses</h1>
+            <div className="flex w-full items-start md:item-center md:justify-center gap-2 mt-5 whitespace-nowrap overflow-x-auto">
+              <button className="px-4 py-2 rounded-lg cursor-pointer hover:bg-purple-500 hover:text-white bg-purple-600 text-white">All</button>
+              <button className="px-4 py-2 rounded-lg cursor-pointer hover:bg-purple-500 hover:text-white bg-purple-600">Trending</button>
+              <button className="px-4 py-2 rounded-lg cursor-pointer hover:bg-purple-500 hover:text-white bg-purple-600">Popular</button>
+              <button className="px-4 py-2 rounded-lg cursor-pointer hover:bg-purple-500 hover:text-white bg-purple-600">Featured</button>
+              <button className="px-4 py-2 rounded-lg cursor-pointer hover:bg-purple-500 hover:text-white bg-purple-600">Arts & Design</button>
+            </div>
+            <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7 w-full mt-10">
+              <Link className="group flex flex-col items-start gap-2 relative border border-gray-200 transition-ease duration-[0.3s] p-[8px] rounded-lg overflow-hidden">
+              </Link>
+            </div>
+            <button className="mt-20 bg-purple-600 hover:bg-purple-700 w-[250px] p-4 rounded-xl text-lg font-semibold text-white border-3 border-purple-300 cursor-pointer transition-ease-in-out duration-0.3s">
+              View More Courses
+            </button>
+          </div>
+        </div>
+
+
+        <div className="flex md:flex-row flex-col-reverse h-[100vh] mt-20 overflow-hidden">
+          <div className="flex md:w-[50%] relative items-center md:justify-end p-5 md:mx-auto z-0">
+            <div className="md:p-10">
+              <h1 className="font-semibold text-3xl lg:text-4xl">Becom An Instructor</h1>
+              <p className="text-[15px] md:text-md text-gray-600 mt-2 max-w-[600px]">
+                Top instructors from across the globe educate millions of students on SkillMine. Renowned experts from various fields share their knowledge, empowering learners worldwide.
+              </p>
+              <ul className="space-y-4 mt-5 text-[15px] md:text-md">
+                {CourseCategories.map((category, index) => (
+                  <li key={index} className="flex items-center gap-2">
+                  </li>
+                ))}
+              </ul>
+              <button className="flex items-center bg-purple-500 text-white text-lg font-semibold px-6 md:py-4 p-3 rounded-lg cursor-pointer mt-10">
+                Start teaching today
+              </button>
+            </div>
+          </div>
+          <img src={heroBg} alt="" className="md:w-[50%] md:h-full h-[200px] object-cover" />
+        </div>
+
+        <div className="flex md:flex-row flex-col items-center justify-center px-0 h-[100vh] md:mt-0 mt-20">
+            <img src={heroBg} alt="" className="md:w-[50%] md:h-full h-[200px] object-cover" />
         </div>
       </main>
     </div>
