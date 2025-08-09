@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
-import Footer from "./Footer";
+// import Footer from "./Footer";
 
 import StarRatings from "react-star-ratings";
 import { Swiper, SwiperSlide} from "swiper/react";
@@ -53,6 +53,11 @@ import course9 from "../assets/courses/course3.webp";
 import avatar1 from "../assets/avatar/1.png";
 import avatar2 from "../assets/avatar/2.png";
 import avatar3 from "../assets/avatar/3.png";
+
+import reviewImg1 from "../assets/reviews/1.jpg";
+import reviewImg2 from "../assets/reviews/2.jpg";
+import reviewImg3 from "../assets/reviews/3.jpg";
+import reviewImg4 from "../assets/reviews/4.png";
 
 const requirements = [
   {
@@ -239,36 +244,36 @@ const courses = [
   },
 ]
 
-// const review = [
-//   {
-//     review: "SkillMine is an incridible learning platform! The courses are high quality and easy to follow",
-//     img: reviewImg1,
-//     work: "Web Developer",
-//     name: "William Davids",
-//     ratings: 3
-//   },
-//   {
-//     review: "SkillMine is an incridible learning platform! The courses are high quality and easy to follow",
-//     img: reviewImg2,
-//     work: "Web Developer",
-//     name: "Steve Davids",
-//     ratings: 4.5
-//   },
-//   {
-//     review: "SkillMine is an incridible learning platform! The courses are high quality and easy to follow",
-//     img: reviewImg3,
-//     work: "Web Developer",
-//     name: "Mike Davids",
-//     ratings: 5
-//   },
-//   {
-//     review: "SkillMine is an incridible learning platform! The courses are high quality and easy to follow",
-//     img: reviewImg4,
-//     work: "Web Developer",
-//     name: "John Davids",
-//     ratings: 4
-//   },
-// ]
+const review = [
+  {
+    review: "SkillMine is an incridible learning platform! The courses are high quality and easy to follow",
+    img: reviewImg1,
+    work: "Web Developer",
+    name: "William Davids",
+    ratings: 3
+  },
+  {
+    review: "SkillMine is an incridible learning platform! The courses are high quality and easy to follow",
+    img: reviewImg2,
+    work: "Web Developer",
+    name: "Steve Davids",
+    ratings: 4.5
+  },
+  {
+    review: "SkillMine is an incridible learning platform! The courses are high quality and easy to follow",
+    img: reviewImg3,
+    work: "Web Developer",
+    name: "Mike Davids",
+    ratings: 5
+  },
+  {
+    review: "SkillMine is an incridible learning platform! The courses are high quality and easy to follow",
+    img: reviewImg4,
+    work: "Web Developer",
+    name: "John Davids",
+    ratings: 4
+  },
+]
 
 const LandingPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -495,7 +500,7 @@ const LandingPage = () => {
               nextEl: ".next-btn",
               prevEl: ".prev-btn"
             }}
-            modules={{FreeMode, Pagination, Navigation}}
+            modules={[FreeMode, Pagination, Navigation]}
             className="w-full p-5"
             breakpoint={{
               540: {slidesPerView: 2},
@@ -512,15 +517,15 @@ const LandingPage = () => {
                 <div className="mt-2">
                   <p className="text-xl font-semibold"></p>
                   <p className="text-md text-gray=700"></p>
-                      <StarRatings rating={course.rating}
-                       starRatedColor="orange"
-                        starEmptyColor="gray"
-                        startHoverColor="orangered"
-                        numberOfStars={5}
-                        name="rating"
-                        starDimension="15px"
-                        starSpacing="1px"
-                        />
+                      <StarRatings rating={review.ratings}
+                      starRatedColor="orange"
+                      starEmptyColor="gray"
+                      startHoverColor="orangered"
+                      numberOfStars={5}
+                      name="rating"
+                      starDimension="15px"
+                      starSpacing="1px"
+                      />
                 </div>
                 <div className="flex flex-col item-center justify-center">
                   <p className="text-gray-700 mt-2"></p>
