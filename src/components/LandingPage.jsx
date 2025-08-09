@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
-// import Footer from "./Footer";
+import Footer from "./Footer";
 
 import StarRatings from "react-star-ratings";
 import { Swiper, SwiperSlide} from "swiper/react";
@@ -14,7 +14,7 @@ import { FreeMode, Pagination, Navigation } from "swiper/modules";
 
 
 import { Link } from "react-router-dom";
-import { RiSearch2Line, RiCheckLine } from "react-icons/ri";
+import { RiSearch2Line, RiCheckLine, RiArrowLeftLine, RiArrowRightLine } from "react-icons/ri";
 import "@fontsource/poppins";
 import "@fontsource/poppins/700.css";
 
@@ -58,6 +58,13 @@ import reviewImg1 from "../assets/reviews/1.jpg";
 import reviewImg2 from "../assets/reviews/2.jpg";
 import reviewImg3 from "../assets/reviews/3.jpg";
 import reviewImg4 from "../assets/reviews/4.png";
+
+import Partner1 from "../assets/partners/1.png";
+import Partner2 from "../assets/partners/2.png";
+import Partner3 from "../assets/partners/3.png";
+import Partner4 from "../assets/partners/4.png";
+import Partner5 from "../assets/partners/5.png";
+import Partner6 from "../assets/partners/6.png";
 
 const requirements = [
   {
@@ -275,6 +282,27 @@ const review = [
   },
 ]
 
+const partners = [
+  {
+    img: Partner1,
+  },
+  {
+    img: Partner2,
+  },
+  {
+    img: Partner3,
+  },
+  {
+    img: Partner4,
+  },
+  {
+    img: Partner5,
+  },
+  {
+    img: Partner6,
+  },
+]
+
 const LandingPage = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const filteredCourses = selectedCategory === "All" ? courses : courses.filter((course) => course.courseInfo === selectedCategory);
@@ -332,7 +360,7 @@ const LandingPage = () => {
           </span>
         </div>
 
-        <div className="flex flex-col items-center justify-center w-full gap-10 mt-30">
+        <div className="flex flex-col items-center justify-center w-full gap-10 mt-[30px]">
           <div className="max-w-[1400px] w-full p-5 md:p-10">
             <h1 className="text-3xl text-gray-700 font-semibold text-center">Top Categories</h1>
             <span className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center gap-7 w-full my-8">
@@ -349,7 +377,7 @@ const LandingPage = () => {
         <div className="flex flex-col items-center justify-center w-full gap-10 mt-10">
           <div className="flex flex-col items-center justify-center w-full max-w-[1400px] p-5 md:p-10">
             <h1 className="text-3xl text-gray-700 font-semibold text-center">Most Popular Courses</h1>
-            <div className="flex w-full items-start md:item-center md:justify-center gap-2 mt-5 whitespace-nowrap overflow-x-auto">
+            <div className="flex w-full items-start md:items-center md:justify-center gap-2 mt-5 whitespace-nowrap overflow-x-auto">
               {["All", "Trending", "Popular", "Featured", "Arts & Design"].map(
                 (category) => (
                   <button key={category} 
@@ -379,7 +407,7 @@ const LandingPage = () => {
                       <StarRatings rating={course.rating}
                        starRatedColor="orange"
                         starEmptyColor="gray"
-                        startHoverColor="orangered"
+                        starHoverColor="orange"
                         numberOfStars={5}
                         name="rating"
                         starDimension="15px"
@@ -488,7 +516,7 @@ const LandingPage = () => {
             </header>
             <Swiper
             spaceBetween={20}
-            freemode={false}
+            freeMode={false}
             autoplay={{
               enabled: true,
               delay: 200,
@@ -502,7 +530,7 @@ const LandingPage = () => {
             }}
             modules={[FreeMode, Pagination, Navigation]}
             className="w-full p-5"
-            breakpoint={{
+            breakpoints={{
               540: {slidesPerView: 2},
               768: {slidesPerView: 2},
               1024: {slidesPerView: 3},
@@ -510,40 +538,52 @@ const LandingPage = () => {
             }}
             >
              {review.map((review, index) => (
-              <div className="flex flex-col items-center justify-center text-center gap-3 w-full border border-gray-200 transition-ease duration-[0.3s] p-5 md:p-10 rounded-lg py-6">
+              <SwiperSlide key={index} className="flex mb-6">
+                <div className="flex flex-col items-center justify-center text-center gap-3 w-full border border-gray-200 transition-ease duration-[0.3s] p-5 md:p-10 rounded-lg py-6">
                 <div className="border border-4 border-purple-100 rounded-full p-1">
                   <img src={review.img} className="w-[160px] h-[160px] rounded-full object-cover" alt="review-image" />
                 </div>
                 <div className="mt-2">
-                  <p className="text-xl font-semibold"></p>
-                  <p className="text-md text-gray=700"></p>
-                      <StarRatings rating={review.ratings}
+                  <p className="text-xl font-semibold">{review.name}</p>
+                  <p className="text-md text-gray-700">{review.work}</p>
+                      <StarRatings rating={review?.ratings}
                       starRatedColor="orange"
                       starEmptyColor="gray"
-                      startHoverColor="orangered"
+                      starHoverColor="orange"
+                      changeRating={(newRating) => console.log(newRating)}
                       numberOfStars={5}
                       name="rating"
-                      starDimension="15px"
-                      starSpacing="1px"
+                      starDimension="17px"
                       />
                 </div>
-                <div className="flex flex-col item-center justify-center">
-                  <p className="text-gray-700 mt-2"></p>
+                <div className="flex flex-col items-center justify-center">
+                  <p className="text-gray-700 mt-2">{review.review}</p>
                 </div>
               </div>
+              </SwiperSlide>
               ))}
             </Swiper>
+            <div className="flex gap-10">
+              <button className="prev-btn cursor-pointer bg-purple-500 rounded-full p-2">
+                <RiArrowLeftLine color="white" size={29} />
+              </button>
+              <button className="next-btn cursor-pointer bg-purple-500 rounded-full p-2">
+                <RiArrowRightLine color="white" size={29} />
+              </button>
+            </div>
           </div>
         </div>
         <div className="bg-gray-50 mt-20 py-20">
           <div className="relative w-full h-full">
             <h1 className="text-3xl text-gray-700 font-semibold text-center">Our Partners</h1>
             <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-6 gap-10 max-w-[1400px] mx-auto p-5 md:p-10 whitespace-nowrap mt-5">
-              <img src="" alt="partener-img" className="w-[90px] md:w-[120px] h-auto object-cover mx-auto" />
+              {partners.map((partner, index) => (
+              <img src={partner.img} key={index} alt="partener-img" className="w-[90px] md:w-[120px] h-auto object-cover mx-auto" />
+              ))}
             </div>
           </div>
         </div>
-        {/* <Footer /> */}
+        <Footer />
         {/* <footer className="bg-gray-50 flex flex-col items-center justify-center h-full w-full mt-10 px-0">
           <div className="text-start w-full max-w-[1400px] mx-auto p-5 md:p-10">
             <ul className="flex flex-row flex-wrap justify-between gap-20 w-full mt-2 py-5">

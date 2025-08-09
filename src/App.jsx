@@ -6,6 +6,7 @@ import "@fontsource/jost";
 import "@fontsource/jost/700.css";
 
 import LandingPage from './components/LandingPage';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={<Footer />} />
         </Routes>
       </Router>
     </div>
