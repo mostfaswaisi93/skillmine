@@ -1,20 +1,20 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import './App.css';
 
 import "@fontsource/jost";
 import "@fontsource/jost/700.css";
 
-import LandingPage from './components/LandingPage';
-import Footer from './components/Footer';
+import './App.css';
+
+import { LandingPage, ItemDetails } from './components';
 
 function App() {
   return (
-    <div className='h-[100vh]' style={{fontFamily: "jost, sans-serif"}}>
+    <div className='h-[100vh]' style={{ fontFamily: "jost, sans-serif" }}>
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/" element={<Footer />} />
+          <Route path="/ItemDetails" element={<ItemDetails />} />
         </Routes>
       </Router>
     </div>

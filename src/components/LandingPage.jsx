@@ -388,7 +388,7 @@ const LandingPage = () => {
             </div>
             <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7 w-full mt-10">
                 {filteredCourses.map((course, index) => (
-                  <Link key={course.id} to="#" className="group flex flex-col items-start gap-2 relative border border-gray-200 transition-ease duration-[0.3s] p-[8px] rounded-lg overflow-hidden">
+                  <Link key={index} to="/ItemDetails" className="group flex flex-col items-start gap-2 relative border border-gray-200 transition-ease duration-[0.3s] p-[8px] rounded-lg overflow-hidden">
                     <div className="overflow-hidden w-full">
                       <img src={course.img} className="w-full h-[180px] rounded-lg object-cover group-hover:scale-130 transition-ease duration-[0.4s] opacity-80" alt="image" />
                     </div>
@@ -584,17 +584,6 @@ const LandingPage = () => {
           </div>
         </div>
         <Footer />
-        {/* <footer className="bg-gray-50 flex flex-col items-center justify-center h-full w-full mt-10 px-0">
-          <div className="text-start w-full max-w-[1400px] mx-auto p-5 md:p-10">
-            <ul className="flex flex-row flex-wrap justify-between gap-20 w-full mt-2 py-5">
-              <li className="flex flex-col gap-5 w-full md:w-fit justify-start"></li>
-              <li className="flex flex-col"></li>
-            </ul>
-          </div>
-          <p className="w-full text-center text-[13px] font-medium mt-4 border-t border-gray-300 py-5">
-            Copyright © 2025 SkillMine. All rights reserved
-          </p>
-        </footer> */}
       </main>
     </div>
   );
