@@ -6,7 +6,7 @@ import "@fontsource/jost/700.css";
 
 import './App.css';
 
-import { LandingPage, ItemDetails } from './components';
+import { LandingPage, ItemDetails, Cart } from './components';
 
 function App() {
   return (
@@ -15,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/ItemDetails/:id" element={<ItemDetails />} />
+          <Route path="/Cart" element={<Cart />} />
         </Routes>
       </Router>
     </div>

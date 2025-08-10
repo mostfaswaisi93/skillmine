@@ -50,9 +50,9 @@ import course7 from "../assets/courses/course1.webp";
 import course8 from "../assets/courses/course2.webp";
 import course9 from "../assets/courses/course3.webp";
 
-import avatar1 from "../assets/avatar/1.png";
-import avatar2 from "../assets/avatar/2.png";
-import avatar3 from "../assets/avatar/3.png";
+import avatar1 from "../assets/avatar/1.jpg";
+import avatar2 from "../assets/avatar/2.jpg";
+import avatar3 from "../assets/avatar/3.jpg";
 
 import reviewImg1 from "../assets/reviews/1.jpg";
 import reviewImg2 from "../assets/reviews/2.jpg";

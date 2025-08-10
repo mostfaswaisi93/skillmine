@@ -33,12 +33,6 @@ import { FreeMode, Pagination, Navigation } from "swiper/modules";
 import course1 from "../assets/courses/course6.webp";
 import course2 from "../assets/courses/course2.webp";
 import course3 from "../assets/courses/course3.png";
-import course4 from "../assets/courses/course4.webp";
-import course5 from "../assets/courses/course5.png";
-import course6 from "../assets/courses/course6.webp";
-import course7 from "../assets/courses/course1.webp";
-import course8 from "../assets/courses/course2.webp";
-import course9 from "../assets/courses/course3.webp";
 
 import tutorAvatar from "../assets/courses/course3.webp";
 
@@ -254,7 +248,8 @@ const ItemDetails = () => {
                             </ul>
                             <button onClick={() => setShowMoreRequirements(!showMoreRequirements)}
                             className="flex items-center text-purple-500 font-medium mt-3 hover:underline">
-                                Show Less <RiArrowDownSLine className={`ml-1 transition-transform duration-300 ${
+                                {showMoreRequirements ? "Show Less" : "Show More"}
+                                <RiArrowDownSLine className={`ml-1 transition-transform duration-300 ${
                                     showMoreRequirements ? "rotate-180" : "rotate-0"
                                 }`} size={18} />
                             </button>
@@ -263,37 +258,112 @@ const ItemDetails = () => {
                             <h3 className="font-semibold text-xl md:text-2xl text-gray-800 mb-4">What You'll Learn</h3>
                             <ul className="list-none space-y-3">
                                 {(showMoreLearning ? learnings : learnings.slice(0, 5))
-                                .map((req, index) => (
+                                .map((learning, index) => (
                                     <li key={index} className="flex items-center text-gray-700">
-                                        <RiCheckLine className="mr-2 text-green-500" size={20} /> {req}
+                                        <RiCheckLine className="mr-2 text-green-500" size={20} /> {learning}
                                     </li>
                                 ))}
                             </ul>
                             <button onClick={() => setShowMoreLearning(!showMoreLearning)}
                             className="flex items-center text-purple-500 font-medium mt-3 hover:underline">
-                                Show Less <RiArrowDownSLine className={`ml-1 transition-transform duration-300 ${
+                                {showMoreLearning ? "Show Less" : "Show More"}
+                                <RiArrowDownSLine className={`ml-1 transition-transform duration-300 ${
                                     showMoreLearning ? "rotate-180" : "rotate-0"
                                 }`} size={18} />
                             </button>
                         </div>
                         <div className="flex flex-col md:flex-row items-start md:items-center gap-4 p-3 border border-gray-200 w-full h-fit rounded-lg">
-                            <img src="" className="w-full md:w-50 md:h-[100%] sm:h-[400px] h-[350px] rounded-md object-cover" alt="" />
+                            <img src={course.tutorAvatar} className="w-full md:w-50 md:h-[100%] sm:h-[400px] h-[350px] rounded-md object-cover" alt={tutor.name} />
                             <div>
-                                <h3 className="text-xl text-gray-800 font-semibold"></h3>
-                                <p className="text-gray-600"></p>
+                                <h3 className="text-xl text-gray-800 font-semibold">{tutor.name}</h3>
+                                <p className="text-gray-600">{tutor.level} instructor</p>
                                 <div className="mt-3 flex flex-wrap gap-3">
-                                    <div className="flex items-center gap-2 text-gray-700"></div>
-                                    <div className="flex items-center gap-2 text-gray-700"></div>
-                                    <div className="flex items-center gap-2 text-gray-700"></div>
+                                    <div className="flex items-center gap-2 text-gray-700">
+                                        <RiBookOpenLine className="text-purple-500" size={20}/>
+                                        <span className="font-semibold">
+                                            {tutor.courses}
+                                        </span> Courses
+                                    </div>
+                                    <div className="flex items-center gap-2 text-gray-700">
+                                        <RiUser3Line className="text-green-500" size={20}/>
+                                        <span className="font-semibold">
+                                            {tutor.students.toLocaleString()}
+                                        </span> Students
+                                    </div>
+                                    <div className="flex items-center gap-2 text-gray-700">
+                                        <RiBookOpenLine className="text-blue-500" size={20}/>
+                                        <span className="font-semibold">
+                                            {tutor.reviews.toLocaleString()}
+                                        </span> Reviews
+                                    </div>
                                 </div>
-                                <p className="text-[15px] text-gray-700 mt-3 max-w-[500px]"></p>
+                                <p className="text-[15px] text-gray-700 mt-3 max-w-[500px]">
+                                    {tutor.name} has over 10 years of experience in the industry, teaching thousands of students worldwide.
+                                </p>
                                 <div className="flex items-center mt-2">
-                                    <span className="ml-2 text-xs text-gray-700 font-semibold"></span>
+                                    <StarRatings rating={course.rating}
+                                    starRatedColor="gold"
+                                    numberOfStars={5}
+                                    starDimension="17px"
+                                    starSpacing="2px"
+                                    />
+                                    <span className="ml-2 text-xs text-gray-700 font-semibold">
+                                        ({tutor.rating})
+                                    </span>
                                 </div>
                             </div>
                         </div>
                         <div className="relative flex flex-col items-center justify-center gap-0 w-full mt-10 py-10">
                             <h2 className="text-xl md:text-2xl font-bold mb-3 text-gray-800 text-start w-full">You also viewed</h2>
+                            <Swiper
+                            spaceBetween={20}
+                            freeMode={false}
+                            autoplay={{
+                                enabled: true,
+                                delay: 200,
+                                disabledOnInteraction: false,
+                            }}
+                            loop={true}
+                            navigation={{
+                                enabled: true,
+                                nextEl: ".next-btn",
+                                prevEl: ".prev-btn"
+                            }}
+                            modules={[FreeMode, Pagination, Navigation]}
+                            className="w-full p-5"
+                            breakpoints={{
+                            540: {slidesPerView: 1},
+                            768: {slidesPerView: 2},
+                            1024: {slidesPerView: 2},
+                            1280: {slidesPerView: 3},
+                            }}
+                            >
+                            {viewed.map((view, index) => (
+                            <SwiperSlide key={index} className="flex mb-6">
+                                <div className="bg-white border border-gray-100 rounded-md p-4">
+                                    <img src={view.img} className="w-full h-32 object-cover rounded-md" alt="course" />
+                                    <h3 className="text-md font-medium mt-3">{view.level}</h3>
+                                    <p className="text-gray-600 text-sm mt-3">{view.price}</p>
+                                    <p className="text-md font-medium mt-1">{view.price}</p>
+                                    <button className="mt-3 w-full bg-purple-500 text-white py-2 rounded-md hover:bg-purple-700 transition cursor-pointer">
+                                        Add to Cart
+                                    </button>
+                                </div>
+                                {/* <div className="mt-2">
+                                    <StarRatings rating={view?.ratings}
+                                    starRatedColor="orange"
+                                    starEmptyColor="gray"
+                                    starHoverColor="orange"
+                                    changeRating={(newRating) => console.log(newRating)}
+                                    numberOfStars={5}
+                                    name="rating"
+                                    starDimension="17px"
+                                    />
+                                </div> */}
+                            </SwiperSlide>
+                            ))}
+                            </Swiper>
+
                             <div className="flex gap-10">
                                 <button className="prev-btn cursor-pointer bg-purple-500 rounded-full p-2">
 
