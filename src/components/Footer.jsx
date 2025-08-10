@@ -199,7 +199,8 @@ const Footer = () => {
         </ul>
       </div>
       <p className="w-full text-center text-[13px] font-medium mt-4 border-t border-gray-300 py-5">
-        Copyright &copy; {new Date().getFullYear()} SkillMine. All rights reserved
+        Copyright &copy; {new Date().getFullYear()} SkillMine. All rights
+        reserved
       </p>
     </footer>
   );

@@ -1,14 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  RiSearch2Line,
-  RiShoppingCartLine,
-  RiMenu3Line
-} from "react-icons/ri";
-import {
-  FaTimes,
-  FaChevronDown
-} from "react-icons/fa";
+import { RiSearch2Line, RiShoppingCartLine, RiMenu3Line } from "react-icons/ri";
+import { FaTimes, FaChevronDown } from "react-icons/fa";
 
 const CourseCategories = [
   "Art & Design",
@@ -26,7 +19,7 @@ const CourseCategories = [
   "Law",
   "AI & Machine Learning",
   "Data Science",
-  "Music & Audio Production"
+  "Music & Audio Production",
 ];
 
 const Navbar = () => {
@@ -88,7 +81,10 @@ const Navbar = () => {
           </button>
         </form>
 
-        <Link className="hidden lg:block whitespace-nowrap hover-text-purple-500" to="#">
+        <Link
+          className="hidden lg:block whitespace-nowrap hover-text-purple-500"
+          to="#"
+        >
           Become an Instructor
         </Link>
 
@@ -100,15 +96,24 @@ const Navbar = () => {
             </span>
           </Link>
 
-          <button className="lg:hidden cursor-pointer" onClick={() => setIsSidebarOpen(true)}>
+          <button
+            className="lg:hidden cursor-pointer"
+            onClick={() => setIsSidebarOpen(true)}
+          >
             <RiMenu3Line color="#000" size={25} />
           </button>
 
           <span className="hidden lg:flex items-center gap-8 lg:border-l border-gray-300 pl-5 ml-5 whitespace-nowrap">
-            <Link to="/Login" className="text-lg font-medium hover:text-purple-500">
+            <Link
+              to="/Login"
+              className="text-lg font-medium hover:text-purple-500"
+            >
               Log In
             </Link>
-            <Link to="/SignUp" className="text-lg font-medium bg-purple-600 text-white px-6 py-2 rounded-md text-center">
+            <Link
+              to="/SignUp"
+              className="text-lg font-medium bg-purple-600 text-white px-6 py-2 rounded-md text-center"
+            >
               Sign Up
             </Link>
           </span>
@@ -191,10 +196,16 @@ const Navbar = () => {
           </div>
 
           <div className="absolute bottom-20 flex flex-col items-center gap-2 w-full">
-            <Link to="#" className="w-full text-lg font-medium bg-purple-600 text-white px-6 py-3 rounded-md text-center">
+            <Link
+              to="/Login"
+              className="w-full text-lg font-medium bg-purple-600 text-white px-6 py-3 rounded-md text-center"
+            >
               Login
             </Link>
-            <Link to="#" className="w-full text-lg font-medium bg-purple-600 text-white px-6 py-3 rounded-md text-center">
+            <Link
+              to="/SignUp"
+              className="w-full text-lg font-medium bg-purple-600 text-white px-6 py-3 rounded-md text-center"
+            >
               Sign Up
             </Link>
           </div>
