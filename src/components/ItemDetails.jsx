@@ -342,34 +342,22 @@ const ItemDetails = () => {
                             <SwiperSlide key={index} className="flex mb-6">
                                 <div className="bg-white border border-gray-100 rounded-md p-4">
                                     <img src={view.img} className="w-full h-32 object-cover rounded-md" alt="course" />
-                                    <h3 className="text-md font-medium mt-3">{view.level}</h3>
-                                    <p className="text-gray-600 text-sm mt-3">{view.price}</p>
-                                    <p className="text-md font-medium mt-1">{view.price}</p>
+                                    <h3 className="text-md font-medium mt-3">{view.title}</h3>
+                                    <p className="text-gray-600 text-sm mt-3">{view.tutorName}</p>
+                                    <p className="text-md font-medium mt-1">$29.99</p>
                                     <button className="mt-3 w-full bg-purple-500 text-white py-2 rounded-md hover:bg-purple-700 transition cursor-pointer">
                                         Add to Cart
                                     </button>
                                 </div>
-                                {/* <div className="mt-2">
-                                    <StarRatings rating={view?.ratings}
-                                    starRatedColor="orange"
-                                    starEmptyColor="gray"
-                                    starHoverColor="orange"
-                                    changeRating={(newRating) => console.log(newRating)}
-                                    numberOfStars={5}
-                                    name="rating"
-                                    starDimension="17px"
-                                    />
-                                </div> */}
                             </SwiperSlide>
                             ))}
                             </Swiper>
-
                             <div className="flex gap-10">
                                 <button className="prev-btn cursor-pointer bg-purple-500 rounded-full p-2">
-
+                                    <RiArrowLeftLine color="white" size={29} />
                                 </button>
                                 <button className="next-btn cursor-pointer bg-purple-500 rounded-full p-2">
-
+                                    <RiArrowRightLine color="white" size={29} />
                                 </button>
                             </div>
                         </div>
@@ -377,8 +365,8 @@ const ItemDetails = () => {
                 </div>
                 <div className="block lg:sticky z-40 top-28 lg:w-[30%] h-fit bg-white lg:shadow-lg border border-gray-200 p-5 md:px-8 py-6 rounded-md">
                     <div className="flex items-center gap-2">
-                        <p className="font-bold text-2xl text-purple-500"></p>
-                        <p className="text-md text-gray-400 line-through"></p>
+                        <p className="font-bold text-2xl text-purple-500">{course.price}</p>
+                        <p className="text-md text-gray-400 line-through">{course.canceledPrice}</p>
                     </div>
                     <div className="flex flex-col items-start gap-2 mt-3">
                         <span className="flex gap-2 items-center w-full">
@@ -386,7 +374,7 @@ const ItemDetails = () => {
                                 Buy now
                             </button>
                             <button className="w-fit bg-purple-500 hover:bg-purple-600 transition duration-0.3s text-white font-semibold px-3 py-2.5 rounded-md cursor-pointer">
-
+                                <RiHeartLine color="#fff" size={20} />
                             </button>
                         </span>
                         <button className="w-full border-2 border-purple-500 text-purple-500 hover:bg-purple-600 hover:text-white font-semibold p-2 rounded-md cursor-pointer transition duration-0.3s">
@@ -395,9 +383,12 @@ const ItemDetails = () => {
                     </div>
                     <h3 className="text-lg font-semibold text-gray-900 mb-4 mt-5">This course includes:</h3>
                     <ul className="space-y-3">
-                        <li className="flex items-center text-gray-700">
-                            <span className="mr-3"></span>
-                        </li>
+                        {courseFeatures.map((feature, index) => (
+                            <li key={index} className="flex items-center text-gray-700">
+                                <span className="mr-3">{feature.icon}</span>
+                                {feature.text}
+                            </li>
+                        ))}
                     </ul>
                     <div className="mt-8 flex flex-wrap items-center space-x-5 text-purple-700 font-medium">
                         <button className="hover:underline whitespace-nowrap cursor-pointer">Share</button>

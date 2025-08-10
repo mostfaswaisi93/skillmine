@@ -6,7 +6,7 @@ import "@fontsource/jost/700.css";
 
 import './App.css';
 
-import { LandingPage, ItemDetails, Cart } from './components';
+import { LandingPage, ItemDetails, Cart, Login, SignUp, ForgotPassword } from './components';
 
 function App() {
   return (
@@ -16,6 +16,9 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/ItemDetails/:id" element={<ItemDetails />} />
           <Route path="/Cart" element={<Cart />} />
+          <Route path="/Login" element={<Login />} />
+          <Route path="/SignUp" element={<SignUp />} />
+          <Route path="/ForgotPassword" element={<ForgotPassword />} />
         </Routes>
       </Router>
     </div>

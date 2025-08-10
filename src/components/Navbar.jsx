@@ -93,7 +93,7 @@ const Navbar = () => {
         </Link>
 
         <div className="flex items-center gap-4 min-h-[40px]">
-          <Link to="#" className="cursor-pointer relative p-2">
+          <Link to="/Cart" className="cursor-pointer relative p-2">
             <RiShoppingCartLine color="#000" size={25} />
             <span className="flex items-center justify-center absolute top-[-2px] right-[-5px] bg-purple-600 text-white text-sm font-medium p-1.5 rounded-full h-[20px] w-fit">
               4
@@ -105,10 +105,10 @@ const Navbar = () => {
           </button>
 
           <span className="hidden lg:flex items-center gap-8 lg:border-l border-gray-300 pl-5 ml-5 whitespace-nowrap">
-            <Link to="#" className="text-lg font-medium hover:text-purple-500">
+            <Link to="/Login" className="text-lg font-medium hover:text-purple-500">
               Log In
             </Link>
-            <Link to="#" className="text-lg font-medium bg-purple-600 text-white px-6 py-2 rounded-md text-center">
+            <Link to="/SignUp" className="text-lg font-medium bg-purple-600 text-white px-6 py-2 rounded-md text-center">
               Sign Up
             </Link>
           </span>
