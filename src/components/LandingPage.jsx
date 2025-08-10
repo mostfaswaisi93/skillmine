@@ -149,7 +149,7 @@ const courses = [
     courseInfo: "Arts & Design",
     courseDiscount: "-10%",
     rating: 4,
-    description: "Take this negotiation course today and you'll learn to negotiate masterfully"
+    description: "Take this negotiation course today and you’ll learn to negotiate masterfully, giving yourself a considerably better chance of personal and financial success. Just check out the reviews to see what a difference successful negotiation can make to your life."
   },
   {
     img: course9,
@@ -163,7 +163,7 @@ const courses = [
     courseInfo: "Popular",
     courseDiscount: "-20%",
     rating: 5,
-    description: "Take this negotiation course today and you'll learn to negotiate masterfully"
+    description: "Take this negotiation course today and you’ll learn to negotiate masterfully, giving yourself a considerably better chance of personal and financial success. Just check out the reviews to see what a difference successful negotiation can make to your life."
   },
   {
     img: course7,
@@ -177,7 +177,7 @@ const courses = [
     courseInfo: "Featured",
     courseDiscount: "-15%",
     rating: 4.5,
-    description: "Take this negotiation course today and you'll learn to negotiate masterfully"
+    description: "Take this negotiation course today and you’ll learn to negotiate masterfully, giving yourself a considerably better chance of personal and financial success. Just check out the reviews to see what a difference successful negotiation can make to your life."
   },
   {
     img: course6,
@@ -191,7 +191,7 @@ const courses = [
     courseInfo: "Popular",
     courseDiscount: "",
     rating: 3,
-    description: "Take this negotiation course today and you'll learn to negotiate masterfully"
+    description: "Take this negotiation course today and you’ll learn to negotiate masterfully, giving yourself a considerably better chance of personal and financial success. Just check out the reviews to see what a difference successful negotiation can make to your life."
   },
   {
     img: course8,
@@ -205,7 +205,7 @@ const courses = [
     courseInfo: "Popular",
     courseDiscount: "-19%",
     rating: 4.6,
-    description: "Take this negotiation course today and you'll learn to negotiate masterfully"
+    description: "Take this negotiation course today and you’ll learn to negotiate masterfully, giving yourself a considerably better chance of personal and financial success. Just check out the reviews to see what a difference successful negotiation can make to your life."
   },
   {
     img: course3,
@@ -219,7 +219,7 @@ const courses = [
     courseInfo: "Trending",
     courseDiscount: "",
     rating: 5,
-    description: "Take this negotiation course today and you'll learn to negotiate masterfully"
+    description: "Take this negotiation course today and you’ll learn to negotiate masterfully, giving yourself a considerably better chance of personal and financial success. Just check out the reviews to see what a difference successful negotiation can make to your life."
   },
   {
     img: course1,
@@ -233,7 +233,7 @@ const courses = [
     courseInfo: "Featured",
     courseDiscount: "-20%",
     rating: 4.5,
-    description: "Take this negotiation course today and you'll learn to negotiate masterfully"
+    description: "Take this negotiation course today and you’ll learn to negotiate masterfully, giving yourself a considerably better chance of personal and financial success. Just check out the reviews to see what a difference successful negotiation can make to your life."
   },
   {
     img: course4,
@@ -247,7 +247,7 @@ const courses = [
     courseInfo: "Trending",
     courseDiscount: "",
     rating: 4.5,
-    description: "Take this negotiation course today and you'll learn to negotiate masterfully"
+    description: "Take this negotiation course today and you’ll learn to negotiate masterfully, giving yourself a considerably better chance of personal and financial success. Just check out the reviews to see what a difference successful negotiation can make to your life."
   },
 ]
 
@@ -388,7 +388,7 @@ const LandingPage = () => {
             </div>
             <div className="grid sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-7 w-full mt-10">
                 {filteredCourses.map((course, index) => (
-                  <Link key={index} to="/ItemDetails" className="group flex flex-col items-start gap-2 relative border border-gray-200 transition-ease duration-[0.3s] p-[8px] rounded-lg overflow-hidden">
+                  <Link key={course.id || index} to={`/ItemDetails/${course.id}`} state={{course}} className="group flex flex-col items-start gap-2 relative border border-gray-200 transition-ease duration-[0.3s] p-[8px] rounded-lg overflow-hidden">
                     <div className="overflow-hidden w-full">
                       <img src={course.img} className="w-full h-[180px] rounded-lg object-cover group-hover:scale-130 transition-ease duration-[0.4s] opacity-80" alt="image" />
                     </div>

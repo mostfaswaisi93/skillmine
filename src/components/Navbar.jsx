@@ -109,7 +109,7 @@ const Navbar = () => {
               Log In
             </Link>
             <Link to="#" className="text-lg font-medium bg-purple-600 text-white px-6 py-2 rounded-md text-center">
-              Sign In
+              Sign Up
             </Link>
           </span>
         </div>

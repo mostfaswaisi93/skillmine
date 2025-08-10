@@ -191,37 +191,51 @@ const ItemDetails = () => {
             <div className="flex lg:flex-row flex-col gap-10 items-center justify-beween max-w-[1400px] mx-auto px-5 lg:px-10">
                 <div className="w-full">
                     <span className="pb-2 mt-4">
-                        <h1 className="text-xl sm:text-2xl md:text-3xl max-w-[700px] text-gray-100 font-semibold"></h1>
+                        <h1 className="text-xl sm:text-2xl md:text-3xl max-w-[700px] text-gray-100 font-semibold">
+                            {course.title}
+                        </h1>
                     </span>
                     <div className="mt-4">
                         <h1 className="font-semibold text-lg md:text-2xl text-gray-100 md-1">About this course</h1>
                         <p className="text-gray-200 leading-relaxed max-w-[600px]">
-                            Take this negotiation course today and you’ll learn to negotiate masterfully, giving yourself a considerably better chance of personal and financial success. Just check out the reviews to see what a difference successful negotiation can make to your life. 
+                            {course.description || "no description is available"}
                         </p>
                     </div>
                     <div className="flex gap-1 mt-5">
                         <h1 className="font-medium text-xl text-gray-200">Level:</h1>
-                        <span className="text-gray-200 text-lg font-medium"></span>
+                        <span className="text-gray-200 text-lg font-medium">{course.level}</span>
                     </div>
                     <div className="flex gap-1">
                         <h1 className="font-medium text-xl text-gray-200">Price:</h1>
-                        <span className="text-purple-400 text-md font-semibold mt-1"></span>
+                        <span className="text-purple-400 text-md font-semibold mt-1">{course.price}</span>
                     </div>
                     <div className="flex items-center mt-2 gap-1">
-                        <span className="text-xs text-yellow-500 font-semibold"></span>
+                        <StarRatings rating={course.rating}
+                        starRatedColor="gold"
+                        numberOfStars={5}
+                        starDimension="15px"
+                        starSpacing="2px"
+                        />
+                        <span className="text-xs text-yellow-500 font-semibold">
+                            ({tutor.rating})
+                        </span>
                     </div>
                     <button className="md:mt-5 mt-3 w-[120px] bg-purple-500 text-white py-2 rounded-md hover:bg-purple-700 transition cursor-pointer">
                         Add to Cart
                     </button>
                 </div>
-                <div className="flex items-center justify-center relative w-full h-[500px]">
-                    <img src="" alt="" className="absolute z-20 w-full h-full object-cover rounded-sm" />
-                    <div className="absolute z-30 bg-[#000000a2] w-full h-full rounded-sm"></div>
-                    <button className="absolute z-30 flex justify-center items-center bg-black bg-opacity-40 rounded-full p-1 hover:bg-opacity-50 transition cursor-pointer">
-
-                    </button>
-                    <p className="absolute z-30 text-white bottom-43 font-semibold">Review this Course</p>
-                </div>
+                {isVideoPlaying? (
+                    <iframe className="w-full h-[500px] rounded-sm" src="https://www.youtube.com/embed/2IV08sP9m3U?autoplay=1&mute=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                ) : (
+                    <div className="flex items-center justify-center relative w-full h-[500px]">
+                        <img src={course.img} alt={course.img} className="absolute z-20 w-full h-full object-cover rounded-sm" />
+                        <div className="absolute z-30 bg-[#000000a2] w-full h-full rounded-sm"></div>
+                        <button onClick={() => setIsVideoPlaying(true)} className="absolute z-30 flex justify-center items-center bg-black bg-opacity-40 rounded-full p-1 hover:bg-opacity-50 transition cursor-pointer">
+                        <RiPlayCircleLine color="#fff" size={50}/>
+                        </button>
+                        <p className="absolute z-30 text-white bottom-43 font-semibold">Review this Course</p>
+                    </div>
+                )}
             </div>
         </div>
         <main className="flex flex-col relative max-w-[1400px] mx-auto px-5 lg:px-10">
@@ -231,19 +245,35 @@ const ItemDetails = () => {
                         <div className="border border-gray-200 p-5 rounded-md">
                             <h3 className="font-semibold text-xl md:text-2xl text-gray-800 mb-4">Course Requirements</h3>
                             <ul className="list-none space-y-3">
-                                <li className="flex items-center text-gray-700"></li>
+                                {(showMoreRequirements ? requirements : requirements.slice(0, 5))
+                                .map((req, index) => (
+                                    <li key={index} className="flex items-center text-gray-700">
+                                        <RiCheckLine className="mr-2 text-green-500" size={20} /> {req}
+                                    </li>
+                                ))}
                             </ul>
-                            <button className="flex items-center text-purple-500 font-medium mt-3 hover:underline">
-                                Show Less
+                            <button onClick={() => setShowMoreRequirements(!showMoreRequirements)}
+                            className="flex items-center text-purple-500 font-medium mt-3 hover:underline">
+                                Show Less <RiArrowDownSLine className={`ml-1 transition-transform duration-300 ${
+                                    showMoreRequirements ? "rotate-180" : "rotate-0"
+                                }`} size={18} />
                             </button>
                         </div>
                         <div className="border border-gray-200 p-5 rounded-md">
                             <h3 className="font-semibold text-xl md:text-2xl text-gray-800 mb-4">What You'll Learn</h3>
                             <ul className="list-none space-y-3">
-                                <li className="flex items-center text-gray-700"></li>
+                                {(showMoreLearning ? learnings : learnings.slice(0, 5))
+                                .map((req, index) => (
+                                    <li key={index} className="flex items-center text-gray-700">
+                                        <RiCheckLine className="mr-2 text-green-500" size={20} /> {req}
+                                    </li>
+                                ))}
                             </ul>
-                            <button className="flex items-center text-purple-500 font-medium mt-3 hover:underline">
-                            Show Less
+                            <button onClick={() => setShowMoreLearning(!showMoreLearning)}
+                            className="flex items-center text-purple-500 font-medium mt-3 hover:underline">
+                                Show Less <RiArrowDownSLine className={`ml-1 transition-transform duration-300 ${
+                                    showMoreLearning ? "rotate-180" : "rotate-0"
+                                }`} size={18} />
                             </button>
                         </div>
                         <div className="flex flex-col md:flex-row items-start md:items-center gap-4 p-3 border border-gray-200 w-full h-fit rounded-lg">
