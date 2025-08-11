@@ -65,6 +65,7 @@ const Cart = () => {
       title: "How to Build a Responsive Website Using React and Tailwind CSS",
       price: "$129.00",
       tutorName: "James Maximus",
+      rating: 4.5,
     },
     {
       img: course2,
@@ -72,6 +73,7 @@ const Cart = () => {
       title: "How to Build a Responsive Website Using React and Tailwind CSS",
       price: "$9.00",
       tutorName: "James Maximus",
+      rating: 3.5,
     },
     {
       img: course3,
@@ -79,6 +81,7 @@ const Cart = () => {
       title: "How to Build a Responsive Website Using React and Tailwind CSS",
       price: "$29.00",
       tutorName: "James Maximus",
+      rating: 5,
     },
     {
       img: course1,
@@ -86,6 +89,7 @@ const Cart = () => {
       title: "How to Build a Responsive Website Using React and Tailwind CSS",
       price: "$39.00",
       tutorName: "James Maximus",
+      rating: 4.5,
     },
     {
       img: course3,
@@ -93,6 +97,7 @@ const Cart = () => {
       title: "How to Build a Responsive Website Using React and Tailwind CSS",
       price: "$19.00",
       tutorName: "James Maximus",
+      rating: 5,
     },
     {
       img: course2,
@@ -100,6 +105,7 @@ const Cart = () => {
       title: "How to Build a Responsive Website Using React and Tailwind CSS",
       price: "$19.00",
       tutorName: "James Maximus",
+      rating: 4,
     },
     {
       img: course3,
@@ -107,6 +113,7 @@ const Cart = () => {
       title: "How to Build a Responsive Website Using React and Tailwind CSS",
       price: "$19.00",
       tutorName: "James Maximus",
+      rating: 5,
     },
     {
       img: course1,
@@ -114,8 +121,10 @@ const Cart = () => {
       title: "How to Build a Responsive Website Using React and Tailwind CSS",
       price: "$19.00",
       tutorName: "James Maximus",
+      rating: 3.5,
     },
   ];
+
   const similerCourses = [
     {
       img: course1,
@@ -123,6 +132,7 @@ const Cart = () => {
       title: "How to Build a Responsive Website Using React and Tailwind CSS",
       price: "$129.00",
       tutorName: "James Maximus",
+      rating: 4.5,
     },
     {
       img: course2,
@@ -130,6 +140,7 @@ const Cart = () => {
       title: "How to Build a Responsive Website Using React and Tailwind CSS",
       price: "$9.00",
       tutorName: "James Maximus",
+      rating: 3.5,
     },
     {
       img: course3,
@@ -137,6 +148,7 @@ const Cart = () => {
       title: "How to Build a Responsive Website Using React and Tailwind CSS",
       price: "$29.00",
       tutorName: "James Maximus",
+      rating: 5,
     },
     {
       img: course1,
@@ -144,6 +156,7 @@ const Cart = () => {
       title: "How to Build a Responsive Website Using React and Tailwind CSS",
       price: "$39.00",
       tutorName: "James Maximus",
+      rating: 4.5,
     },
     {
       img: course3,
@@ -151,6 +164,7 @@ const Cart = () => {
       title: "How to Build a Responsive Website Using React and Tailwind CSS",
       price: "$19.00",
       tutorName: "James Maximus",
+      rating: 5,
     },
     {
       img: course2,
@@ -158,6 +172,7 @@ const Cart = () => {
       title: "How to Build a Responsive Website Using React and Tailwind CSS",
       price: "$19.00",
       tutorName: "James Maximus",
+      rating: 4,
     },
     {
       img: course3,
@@ -165,6 +180,7 @@ const Cart = () => {
       title: "How to Build a Responsive Website Using React and Tailwind CSS",
       price: "$19.00",
       tutorName: "James Maximus",
+      rating: 5,
     },
     {
       img: course1,
@@ -172,6 +188,7 @@ const Cart = () => {
       title: "How to Build a Responsive Website Using React and Tailwind CSS",
       price: "$19.00",
       tutorName: "James Maximus",
+      rating: 3.5,
     },
   ];
 
@@ -285,7 +302,7 @@ const Cart = () => {
             </button>
           </div>
         </div>
-        <div className="relative flex flex-col items-center justify-center gap-0 w-full mt-10 py-10">
+        <div className="relative flex flex-col items-center justify-center gap-0 w-full mt-5 py-5">
           <h2 className="text-xl md:text-2xl font-bold mb-3 text-gray-800 text-start w-full">
             You also viewed
           </h2>
@@ -309,7 +326,7 @@ const Cart = () => {
               540: { slidesPerView: 1 },
               768: { slidesPerView: 2 },
               1024: { slidesPerView: 2 },
-              1280: { slidesPerView: 3 },
+              1280: { slidesPerView: 4 },
             }}
           >
             {viewed.map((view, index) => (
@@ -322,6 +339,18 @@ const Cart = () => {
                   />
                   <h3 className="text-md font-medium mt-3">{view.title}</h3>
                   <p className="text-gray-600 text-sm mt-3">{view.tutorName}</p>
+                  <div className="flex items-center mt-2 gap-1">
+                    <StarRatings
+                      rating={view.rating}
+                      starRatedColor="gold"
+                      numberOfStars={5}
+                      starDimension="15px"
+                      starSpacing="2px"
+                    />
+                    <span className="ml-2 text-xs text-gray-700 font-semibold">
+                      ({view.rating})
+                    </span>
+                  </div>
                   <p className="text-md font-medium mt-1">$29.99</p>
                   <button className="mt-3 w-full bg-purple-500 text-white py-2 rounded-md hover:bg-purple-700 transition cursor-pointer">
                     Add to Cart
@@ -354,8 +383,8 @@ const Cart = () => {
             loop={true}
             navigation={{
               enabled: true,
-              nextEl: ".next-btn",
-              prevEl: ".prev-btn",
+              nextEl: ".next-btn2",
+              prevEl: ".prev-btn2",
             }}
             modules={[FreeMode, Pagination, Navigation]}
             className="w-full p-5"
@@ -363,19 +392,33 @@ const Cart = () => {
               540: { slidesPerView: 1 },
               768: { slidesPerView: 2 },
               1024: { slidesPerView: 2 },
-              1280: { slidesPerView: 3 },
+              1280: { slidesPerView: 4 },
             }}
           >
-            {viewed.map((view, index) => (
+            {similerCourses.map((courses, index) => (
               <SwiperSlide key={index} className="flex mb-6">
                 <div className="bg-white border border-gray-100 rounded-md p-4">
                   <img
-                    src={view.img}
+                    src={courses.img}
                     className="w-full h-32 object-cover rounded-md"
                     alt="course"
                   />
-                  <h3 className="text-md font-medium mt-3">{view.title}</h3>
-                  <p className="text-gray-600 text-sm mt-3">{view.tutorName}</p>
+                  <h3 className="text-md font-medium mt-3">{courses.title}</h3>
+                  <p className="text-gray-600 text-sm mt-3">
+                    {courses.tutorName}
+                  </p>
+                  <div className="flex items-center mt-2 gap-1">
+                    <StarRatings
+                      rating={courses.rating}
+                      starRatedColor="gold"
+                      numberOfStars={5}
+                      starDimension="15px"
+                      starSpacing="2px"
+                    />
+                    <span className="ml-2 text-xs text-gray-700 font-semibold">
+                      ({courses.rating})
+                    </span>
+                  </div>
                   <p className="text-md font-medium mt-1">$29.99</p>
                   <button className="mt-3 w-full bg-purple-500 text-white py-2 rounded-md hover:bg-purple-700 transition cursor-pointer">
                     Add to Cart
@@ -385,15 +428,16 @@ const Cart = () => {
             ))}
           </Swiper>
           <div className="flex gap-10">
-            <button className="prev-btn cursor-pointer bg-purple-500 rounded-full p-2">
+            <button className="prev-btn2 cursor-pointer bg-purple-500 rounded-full p-2">
               <RiArrowLeftLine color="white" size={29} />
             </button>
-            <button className="next-btn cursor-pointer bg-purple-500 rounded-full p-2">
+            <button className="next-btn2 cursor-pointer bg-purple-500 rounded-full p-2">
               <RiArrowRightLine color="white" size={29} />
             </button>
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
