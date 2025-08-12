@@ -40,7 +40,7 @@ const SignUp = () => {
         >
           <header className="flex flex-col gap-5 w-full">
             <h1 className="font-bold text-2xl sm:text-3xl pb-3 text-center">
-              Sign In
+              Sign Up
             </h1>
             <div className="flex sm:flex-row flex-col items-center gap-3 w-full">
               <button
@@ -48,20 +48,20 @@ const SignUp = () => {
                 className="flex items-center justify-center gap-2 bg-purple-500 hover:bg-gradient-to-r from-purple-600 to-purple-500 text-white transition duration ease-in-out w-full p-3 rounded-[10px] text-sm outline-none cursor-pointer"
               >
                 <FaGoogle className="text-white" size={15} />
-                Sign in with Google
+                Sign up with Google
               </button>
               <button
                 type="button"
                 className="flex items-center justify-center gap-2 bg-purple-500 hover:bg-gradient-to-r from-purple-600 to-purple-500 text-white transition duration ease-in-out w-full p-3 rounded-[10px] text-sm outline-none cursor-pointer"
               >
                 <FaFacebook className="text-white" size={15} />
-                Sign in with Facebook
+                Sign up with Facebook
               </button>
             </div>
             <div className="flex items-center justify-center py-4 w-full relative mt-1">
               <p className="w-full border-t border-gray-400"></p>
               <p className="text-sm px-2 absolue bg-white whitespace-nowrap">
-                or sign in with
+                or sign up with
               </p>
               <p className="w-full border-t border-gray-400"></p>
             </div>
@@ -82,6 +82,13 @@ const SignUp = () => {
             placeholder="Password"
             value={formData.password}
             onChange={handleChange}
+            required
+          />
+          <input
+            type="password"
+            name="password"
+            className="bg-transparent w-full px-4 py-2.5 rounded-lg text-sm border border-gray-400 outline-none focus:ring-2 focus:ring-purple-500"
+            placeholder="Confirm Password"
             required
           />
           <div className="flex items-center justify-between w-full text-sm">
@@ -105,11 +112,15 @@ const SignUp = () => {
             type="submit"
             className="p-3 rounded-lg text-white bg-purple-500 hover:bg-gradient-to-r from-purple-600 to-purple-500 transition duration ease-in-out w-full outline-none cursor-pointer"
           >
-            Sign In
+            Sign Up {""}
           </button>
           <p className="text-sm">
-            <Link className="font-semibold text-purple-500 hover:underline">
-              Create an Account
+            Already have an Account? {""}
+            <Link
+              to="/Login"
+              className="font-semibold text-purple-500 hover:underline"
+            >
+              Sign in
             </Link>
           </p>
         </form>

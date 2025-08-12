@@ -105,10 +105,14 @@ const Login = () => {
             type="submit"
             className="p-3 rounded-lg text-white bg-purple-500 hover:bg-gradient-to-r from-purple-600 to-purple-500 transition duration ease-in-out w-full outline-none cursor-pointer"
           >
-            Sign In
+            Sign In {""}
           </button>
           <p className="text-sm">
-            <Link className="font-semibold text-purple-500 hover:underline">
+            New here? {""}
+            <Link
+              to="/SignUp"
+              className="font-semibold text-purple-500 hover:underline"
+            >
               Create an Account
             </Link>
           </p>
