@@ -312,7 +312,7 @@ const Cart = () => {
             autoplay={{
               enabled: true,
               delay: 200,
-              disabledOnInteraction: false,
+              disableOnInteraction: false,
             }}
             loop={true}
             navigation={{
@@ -378,7 +378,7 @@ const Cart = () => {
             autoplay={{
               enabled: true,
               delay: 200,
-              disabledOnInteraction: false,
+              disableOnInteraction: false,
             }}
             loop={true}
             navigation={{

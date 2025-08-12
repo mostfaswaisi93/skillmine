@@ -382,7 +382,7 @@ const ItemDetails = () => {
                   autoplay={{
                     enabled: true,
                     delay: 200,
-                    disabledOnInteraction: false,
+                    disableOnInteraction: false,
                   }}
                   loop={true}
                   navigation={{

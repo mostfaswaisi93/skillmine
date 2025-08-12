@@ -263,7 +263,7 @@ const courses = [
   },
 ];
 
-const review = [
+const reviews = [
   {
     review:
       "SkillMine is an incridible learning platform! The courses are high quality and easy to follow",
@@ -509,7 +509,7 @@ const LandingPage = () => {
               </p>
               <ul className="space-y-4 mt-5 text-[15px] md:text-md">
                 <li className="flex items-center gap-2">
-                  <RiSearch2Line
+                  <RiCheckLine
                     color="white"
                     size={19}
                     className="bg-purple-500 rounded-full"
@@ -517,7 +517,7 @@ const LandingPage = () => {
                   70% Pay from every course
                 </li>
                 <li className="flex items-center gap-2">
-                  <RiSearch2Line
+                  <RiCheckLine
                     color="white"
                     size={19}
                     className="bg-purple-500 rounded-full"
@@ -525,7 +525,7 @@ const LandingPage = () => {
                   70% Pay from every course
                 </li>
                 <li className="flex items-center gap-2">
-                  <RiSearch2Line
+                  <RiCheckLine
                     color="white"
                     size={19}
                     className="bg-purple-500 rounded-full"
@@ -533,7 +533,7 @@ const LandingPage = () => {
                   70% Pay from every course
                 </li>
                 <li className="flex items-center gap-2">
-                  <RiSearch2Line
+                  <RiCheckLine
                     color="white"
                     size={19}
                     className="bg-purple-500 rounded-full"
@@ -541,7 +541,7 @@ const LandingPage = () => {
                   70% Pay from every course
                 </li>
                 <li className="flex items-center gap-2">
-                  <RiSearch2Line
+                  <RiCheckLine
                     color="white"
                     size={19}
                     className="bg-purple-500 rounded-full"
@@ -549,7 +549,7 @@ const LandingPage = () => {
                   70% Pay from every course
                 </li>
                 <li className="flex items-center gap-2">
-                  <RiSearch2Line
+                  <RiCheckLine
                     color="white"
                     size={19}
                     className="bg-purple-500 rounded-full"
@@ -587,7 +587,7 @@ const LandingPage = () => {
             </p>
             <ul className="space-y-4 mt-5 text-[15px] md:text-md">
               <li className="flex items-center gap-2">
-                <RiSearch2Line
+                <RiCheckLine
                   color="white"
                   size={19}
                   className="bg-purple-500 rounded-full"
@@ -595,7 +595,7 @@ const LandingPage = () => {
                 70% Pay from every course
               </li>
               <li className="flex items-center gap-2">
-                <RiSearch2Line
+                <RiCheckLine
                   color="white"
                   size={19}
                   className="bg-purple-500 rounded-full"
@@ -603,7 +603,7 @@ const LandingPage = () => {
                 70% Pay from every course
               </li>
               <li className="flex items-center gap-2">
-                <RiSearch2Line
+                <RiCheckLine
                   color="white"
                   size={19}
                   className="bg-purple-500 rounded-full"
@@ -611,7 +611,7 @@ const LandingPage = () => {
                 70% Pay from every course
               </li>
               <li className="flex items-center gap-2">
-                <RiSearch2Line
+                <RiCheckLine
                   color="white"
                   size={19}
                   className="bg-purple-500 rounded-full"
@@ -619,7 +619,7 @@ const LandingPage = () => {
                 70% Pay from every course
               </li>
               <li className="flex items-center gap-2">
-                <RiSearch2Line
+                <RiCheckLine
                   color="white"
                   size={19}
                   className="bg-purple-500 rounded-full"
@@ -627,7 +627,7 @@ const LandingPage = () => {
                 70% Pay from every course
               </li>
               <li className="flex items-center gap-2">
-                <RiSearch2Line
+                <RiCheckLine
                   color="white"
                   size={19}
                   className="bg-purple-500 rounded-full"
@@ -654,13 +654,14 @@ const LandingPage = () => {
             </header>
             <Swiper
               spaceBetween={20}
+              // spaceBetween={10}
               freeMode={false}
               autoplay={{
                 enabled: true,
                 delay: 200,
-                disabledOnInteraction: false,
+                disableOnInteraction: false,
               }}
-              loop={true}
+              loop={reviews.length >= 4}
               navigation={{
                 enabled: true,
                 nextEl: ".next-btn",
@@ -672,10 +673,11 @@ const LandingPage = () => {
                 540: { slidesPerView: 2 },
                 768: { slidesPerView: 2 },
                 1024: { slidesPerView: 3 },
-                1280: { slidesPerView: 4 },
+                1280: { slidesPerView: 3 },
+                // 1280: { slidesPerView: reviews.length >= 4 ? 4 : reviews.length },
               }}
             >
-              {review.map((review, index) => (
+              {reviews.map((review, index) => (
                 <SwiperSlide key={index} className="flex mb-6">
                   <div className="flex flex-col items-center justify-center text-center gap-3 w-full border border-gray-200 transition-ease duration-[0.3s] p-5 md:p-10 rounded-lg py-6">
                     <div className="border border-4 border-purple-100 rounded-full p-1">
@@ -699,9 +701,9 @@ const LandingPage = () => {
                         starDimension="17px"
                       />
                     </div>
-                    <div className="flex flex-col items-center justify-center">
+                    <span className="flex flex-col items-center justify-center">
                       <p className="text-gray-700 mt-2">{review.review}</p>
-                    </div>
+                    </span>
                   </div>
                 </SwiperSlide>
               ))}
